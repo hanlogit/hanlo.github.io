@@ -1,3 +1,5 @@
+/* === style.css === */
+
 body {
   margin: 0;
   padding: 0;
@@ -7,7 +9,6 @@ body {
 }
 
 header {
-  background-color: transparent;
   padding: 20px 30px;
 }
 
@@ -24,7 +25,11 @@ header {
   height: auto;
 }
 
-nav ul {
+.desktop-menu {
+  display: flex;
+}
+
+.desktop-menu ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -32,15 +37,54 @@ nav ul {
   gap: 30px;
 }
 
-nav ul li a {
+.desktop-menu ul li a {
   color: #301964;
   text-decoration: none;
   font-weight: bold;
   font-size: 18px;
 }
 
-nav ul li a:hover {
+.desktop-menu ul li a:hover {
   text-decoration: underline;
+}
+
+.mobile-menu-icon {
+  display: none;
+  font-size: 28px;
+  color: #301964;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: -70%;
+  width: 70%;
+  height: 100%;
+  background-color: #edebe8;
+  padding-top: 80px;
+  padding-left: 30px;
+  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.2);
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.mobile-menu ul li a {
+  display: block;
+  margin-bottom: 20px;
+  color: #301964;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.mobile-menu.show {
+  left: 0;
 }
 
 main {
@@ -59,8 +103,21 @@ h2 {
 }
 
 footer {
-  background-color: transparent;
   color: #301964;
   text-align: center;
   padding: 20px;
 }
+
+@media (max-width: 768px) {
+  .logo {
+    margin: 0 auto;
+    display: block;
+  }
+  .desktop-menu {
+    display: none;
+  }
+  .mobile-menu-icon {
+    display: block;
+  }
+}
+
