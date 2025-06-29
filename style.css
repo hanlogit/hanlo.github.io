@@ -1,5 +1,4 @@
-/* === style.css === */
-
+/* style.css */
 body {
   margin: 0;
   padding: 0;
@@ -9,15 +8,11 @@ body {
 }
 
 header {
-  padding: 20px 30px;
-}
-
-.nav-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1100px;
-  margin: 0 auto;
+  padding: 20px 30px;
+  position: relative;
 }
 
 .logo {
@@ -25,39 +20,33 @@ header {
   height: auto;
 }
 
-.desktop-menu {
-  display: flex;
-}
-
-.desktop-menu ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+nav.desktop-menu {
   display: flex;
   gap: 30px;
 }
 
-.desktop-menu ul li a {
+nav.desktop-menu a {
   color: #301964;
   text-decoration: none;
   font-weight: bold;
   font-size: 18px;
 }
 
-.desktop-menu ul li a:hover {
+nav.desktop-menu a:hover {
   text-decoration: underline;
 }
 
 .mobile-menu-icon {
   display: none;
-  order: -1;
   font-size: 28px;
   color: #301964;
+  background: none;
+  border: none;
   cursor: pointer;
 }
 
 .mobile-menu {
-  display: none; /* <- Esto faltaba */
+  display: none;
   position: fixed;
   top: 0;
   transform: translateX(-100%);
@@ -65,21 +54,17 @@ header {
   width: 70%;
   height: 100%;
   background-color: #edebe8;
-  padding-top: 80px;
-  padding-left: 30px;
+  padding: 80px 30px;
   box-shadow: 5px 0 10px rgba(0, 0, 0, 0.2);
-  transition: left 0.3s ease;
+  transition: transform 0.3s ease;
   z-index: 1000;
 }
 
-
-
-.mobile-menu ul {
-  list-style: none;
-  padding: 0;
+.mobile-menu.show {
+  transform: translateX(0);
 }
 
-.mobile-menu ul li a {
+.mobile-menu a {
   display: block;
   margin-bottom: 20px;
   color: #301964;
@@ -88,10 +73,38 @@ header {
   font-weight: bold;
 }
 
-.mobile-menu.show {
-  transform: translateX(0);
+.mobile-arrow {
+  display: none;
+  margin-left: 8px;
+  font-size: 1.3rem;
+  font-weight: bold;
 }
 
+@media (max-width: 768px) {
+  /* icon a la izquierda, logo centrado */
+  header {
+    justify-content: center;
+  }
+  .mobile-menu-icon {
+    display: block;
+    position: absolute;
+    left: 30px;
+  }
+
+  /* oculta menú escritorio */
+  nav.desktop-menu {
+    display: none;
+  }
+  /* muestra menú móvil */
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+  }
+  /* muestra flechas solo en móvil */
+  .mobile-arrow {
+    display: inline;
+  }
+}
 
 main {
   max-width: 1000px;
@@ -109,40 +122,10 @@ h2 {
 }
 
 footer {
-  color: #301964;
   text-align: center;
   padding: 20px;
+  color: #301964;
 }
 
-@media (max-width: 768px) {
-  .logo {
-    margin: 0 auto;
-    display: block;
-  }
-
-  .desktop-menu {
-    display: none;
-  }
-
-  .mobile-menu-icon {
-    display: block;
-  }
-
-  .mobile-menu {
-    display: block;
-  }
-}
-.mobile-arrow {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .mobile-arrow {
-    display: inline;
-    font-size: 1.3rem; /* o lo que te parezca visualmente mejor */
-    margin-left: 4px;
-    font-weight: bold;
-  }
-}
 
 
