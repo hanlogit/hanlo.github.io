@@ -9,7 +9,7 @@
 </head>
 <body>
   <header>
-    <button class="mobile-menu-icon">☰</button>
+    <button class="mobile-menu-icon" aria-label="Abrir menú">☰</button>
     <img src="logo.svg" alt="HANLO Logo" class="logo" />
     <nav class="desktop-menu">
       <a href="#productos">Productos</a>
@@ -17,6 +17,9 @@
       <a href="#contacto">Contacto</a>
     </nav>
   </header>
+
+  <!-- overlay para cerrar menú al hacer clic fuera -->
+  <div id="overlay" class="overlay"></div>
 
   <div class="mobile-menu" id="mobileMenu">
     <a href="#productos">Productos <span class="mobile-arrow">&gt;</span></a>
@@ -29,12 +32,10 @@
       <h2>Productos</h2>
       <p>Descripción de los productos ofrecidos por HANLO.</p>
     </section>
-
     <section id="quienes-somos">
       <h2>Quiénes Somos</h2>
       <p>HANLO es una empresa dedicada al diseño personalizado de soluciones arquitectónicas y comerciales.</p>
     </section>
-
     <section id="contacto">
       <h2>Contacto</h2>
       <p>Escríbenos a <a href="mailto:contacto@hanlo.cl">contacto@hanlo.cl</a></p>
@@ -46,3 +47,4 @@
   </footer>
 </body>
 </html>
+
