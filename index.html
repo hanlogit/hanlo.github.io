@@ -3,53 +3,154 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HANLO - Soluciones Personalizadas</title>
-  <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
+  <title>HANLO</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #edebe8;
+      color: #301964;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      width: 140px;
+      height: auto;
+    }
+
+    nav.desktop-menu ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    nav.desktop-menu a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #301964;
+    }
+
+    .mobile-menu-icon {
+      display: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: #301964;
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: -70%;
+      width: 70%;
+      height: 100%;
+      background-color: #edebe8;
+      transition: left 0.3s ease;
+      padding: 2rem 1.5rem;
+      z-index: 1000;
+    }
+
+    .mobile-menu.open {
+      left: 0;
+    }
+
+    .mobile-menu ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .mobile-menu li {
+      margin-bottom: 1.5rem;
+    }
+
+    .mobile-menu a {
+      text-decoration: none;
+      color: #301964;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .mobile-arrow {
+      display: none;
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      nav.desktop-menu {
+        display: none;
+      }
+
+      .mobile-menu-icon {
+        display: block;
+        order: -1;
+      }
+
+      .logo {
+        margin: 0 auto;
+      }
+
+      .mobile-arrow {
+        display: inline;
+        font-size: 1.4rem;
+        font-weight: bold;
+        margin-left: 6px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
-    <div class="nav-container">
-      <img src="logo.svg" alt="Logo de HANLO" class="logo">
-      <nav class="desktop-menu">
-        <ul>
-          <li><a href="#productos">Productos →</a></li>
-          <li><a href="#quienes">Quiénes Somos →</a></li>
-          <li><a href="#contacto">Contacto →</a></li>
-        </ul>
-      </nav>
-      <div class="mobile-menu-icon">
-        <span>&#9776;</span>
-      </div>
-    </div>
-    <div class="mobile-menu hidden">
+    <div class="mobile-menu-icon" onclick="toggleMenu()">&#9776;</div>
+    <img src="logo.svg" alt="Logo HANLO" class="logo">
+    <nav class="desktop-menu">
       <ul>
-        <li><a href="#productos">Productos →</a></li>
-        <li><a href="#quienes">Quiénes Somos →</a></li>
-        <li><a href="#contacto">Contacto →</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#quienes">Quienes Somos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
       </ul>
-    </div>
+    </nav>
   </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#productos">Productos <span class="mobile-arrow">&gt;</span></a></li>
+      <li><a href="#quienes">Quiénes Somos <span class="mobile-arrow">&gt;</span></a></li>
+      <li><a href="#contacto">Contacto <span class="mobile-arrow">&gt;</span></a></li>
+    </ul>
+  </div>
 
   <main>
     <section id="productos">
       <h2>Productos</h2>
       <p>Descripción de los productos ofrecidos por HANLO.</p>
     </section>
-
     <section id="quienes">
       <h2>Quiénes Somos</h2>
       <p>HANLO es una empresa dedicada al diseño personalizado de soluciones arquitectónicas y comerciales.</p>
     </section>
-
     <section id="contacto">
       <h2>Contacto</h2>
       <p>Escríbenos a <a href="mailto:contacto@hanlo.cl">contacto@hanlo.cl</a></p>
     </section>
+    <footer>
+      <p>&copy; 2025 HANLO. Todos los derechos reservados.</p>
+    </footer>
   </main>
 
-  <footer>
-    <p>&copy; 2025 HANLO. Todos los derechos reservados.</p>
-  </footer>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      menu.classList.toggle("open");
+    }
+  </script>
 </body>
 </html>
+
