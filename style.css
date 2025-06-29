@@ -7,8 +7,8 @@ body {
 }
 
 header {
-  background-color: #301964;
-  padding: 10px 20px;
+  background-color: transparent;
+  padding: 20px 30px;
 }
 
 .nav-container {
@@ -20,7 +20,7 @@ header {
 }
 
 .logo {
-  height: 50px;
+  height: 80px; /* Aumentado */
 }
 
 nav ul {
@@ -32,10 +32,10 @@ nav ul {
 }
 
 nav ul li a {
-  color: white;
+  color: #301964;
   text-decoration: none;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 nav ul li a:hover {
@@ -58,8 +58,8 @@ h2 {
 }
 
 footer {
-  background-color: #301964;
-  color: white;
+  background-color: transparent;
+  color: #301964;
   text-align: center;
   padding: 20px;
 }
