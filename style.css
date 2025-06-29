@@ -20,7 +20,8 @@ header {
 }
 
 .logo {
-  height: 80px; /* Aumentado */
+  width: 140px;
+  height: auto;
 }
 
 nav ul {
