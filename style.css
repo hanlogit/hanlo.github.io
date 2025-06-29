@@ -50,6 +50,7 @@ header {
 
 .mobile-menu-icon {
   display: none;
+  order: -1;
   font-size: 28px;
   color: #301964;
   cursor: pointer;
@@ -59,7 +60,8 @@ header {
   display: none; /* <- Esto faltaba */
   position: fixed;
   top: 0;
-  left: -70%;
+  transform: translateX(-100%);
+  left: 0;
   width: 70%;
   height: 100%;
   background-color: #edebe8;
@@ -69,6 +71,7 @@ header {
   transition: left 0.3s ease;
   z-index: 1000;
 }
+
 
 
 .mobile-menu ul {
@@ -86,8 +89,9 @@ header {
 }
 
 .mobile-menu.show {
-  left: 0;
+  transform: translateX(0);
 }
+
 
 main {
   max-width: 1000px;
@@ -128,4 +132,17 @@ footer {
     display: block;
   }
 }
+.mobile-arrow {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-arrow {
+    display: inline;
+    font-size: 1.3rem; /* o lo que te parezca visualmente mejor */
+    margin-left: 4px;
+    font-weight: bold;
+  }
+}
+
 
