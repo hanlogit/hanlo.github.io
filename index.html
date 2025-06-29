@@ -2,27 +2,39 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HANLO - Soluciones Personalizadas</title>
   <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
   <header>
     <div class="nav-container">
       <img src="logo.svg" alt="Logo de HANLO" class="logo">
-      <nav>
+      <nav class="desktop-menu">
         <ul>
-          <li><a href="#productos">Productos</a></li>
-          <li><a href="#quienes">Quiénes Somos</a></li>
-          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#productos">Productos →</a></li>
+          <li><a href="#quienes">Quiénes Somos →</a></li>
+          <li><a href="#contacto">Contacto →</a></li>
         </ul>
       </nav>
+      <div class="mobile-menu-icon">
+        <span>&#9776;</span>
+      </div>
+    </div>
+    <div class="mobile-menu hidden">
+      <ul>
+        <li><a href="#productos">Productos →</a></li>
+        <li><a href="#quienes">Quiénes Somos →</a></li>
+        <li><a href="#contacto">Contacto →</a></li>
+      </ul>
     </div>
   </header>
 
   <main>
     <section id="productos">
       <h2>Productos</h2>
-      <p>Aquí irá la descripción de los productos ofrecidos por HANLO.</p>
+      <p>Descripción de los productos ofrecidos por HANLO.</p>
     </section>
 
     <section id="quienes">
@@ -32,7 +44,7 @@
 
     <section id="contacto">
       <h2>Contacto</h2>
-      <p>Puedes escribirnos a <a href="mailto:contacto@hanlo.cl">contacto@hanlo.cl</a></p>
+      <p>Escríbenos a <a href="mailto:contacto@hanlo.cl">contacto@hanlo.cl</a></p>
     </section>
   </main>
 
