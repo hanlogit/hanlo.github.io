@@ -5,22 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HANLO</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
   <header>
+    <button class="mobile-menu-icon">☰</button>
     <img src="logo.svg" alt="HANLO Logo" class="logo" />
     <nav class="desktop-menu">
       <a href="#productos">Productos</a>
       <a href="#quienes-somos">Quiénes Somos</a>
       <a href="#contacto">Contacto</a>
     </nav>
-    <button class="mobile-menu-icon" onclick="toggleMenu()">☰</button>
   </header>
 
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#productos"><span>Productos</span> <span class="mobile-arrow">></span></a>
-    <a href="#quienes-somos"><span>Quiénes Somos</span> <span class="mobile-arrow">></span></a>
-    <a href="#contacto"><span>Contacto</span> <span class="mobile-arrow">></span></a>
+    <a href="#productos">Productos <span class="mobile-arrow">&gt;</span></a>
+    <a href="#quienes-somos">Quiénes Somos <span class="mobile-arrow">&gt;</span></a>
+    <a href="#contacto">Contacto <span class="mobile-arrow">&gt;</span></a>
   </div>
 
   <main>
@@ -28,10 +29,12 @@
       <h2>Productos</h2>
       <p>Descripción de los productos ofrecidos por HANLO.</p>
     </section>
+
     <section id="quienes-somos">
       <h2>Quiénes Somos</h2>
       <p>HANLO es una empresa dedicada al diseño personalizado de soluciones arquitectónicas y comerciales.</p>
     </section>
+
     <section id="contacto">
       <h2>Contacto</h2>
       <p>Escríbenos a <a href="mailto:contacto@hanlo.cl">contacto@hanlo.cl</a></p>
@@ -41,13 +44,5 @@
   <footer>
     <p>© 2025 HANLO. Todos los derechos reservados.</p>
   </footer>
-
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById("mobileMenu");
-      menu.classList.toggle("open");
-    }
-  </script>
 </body>
 </html>
-
