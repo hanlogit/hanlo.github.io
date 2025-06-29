@@ -1,4 +1,4 @@
-/* style.css */
+/* Reset y tipografía */
 body {
   margin: 0;
   padding: 0;
@@ -7,6 +7,7 @@ body {
   color: #301964;
 }
 
+/* Header */
 header {
   display: flex;
   align-items: center;
@@ -15,27 +16,28 @@ header {
   position: relative;
 }
 
+/* Logo */
 .logo {
   width: 140px;
   height: auto;
 }
 
+/* Menú de escritorio */
 nav.desktop-menu {
   display: flex;
   gap: 30px;
 }
-
 nav.desktop-menu a {
   color: #301964;
   text-decoration: none;
   font-weight: bold;
   font-size: 18px;
 }
-
 nav.desktop-menu a:hover {
   text-decoration: underline;
 }
 
+/* Icono hamburguesa (invisible en desktop) */
 .mobile-menu-icon {
   display: none;
   font-size: 28px;
@@ -45,82 +47,95 @@ nav.desktop-menu a:hover {
   cursor: pointer;
 }
 
+/* Overlay traslúcido para cerrar menú */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: transparent;
+  z-index: 999;
+}
+
+/* Panel móvil (oculto por defecto) */
 .mobile-menu {
   display: none;
   position: fixed;
-  top: 0;
-  transform: translateX(-100%);
-  left: 0;
-  width: 70%;
+  top: 0; left: 0;
+  width: 60%;
   height: 100%;
   background-color: #edebe8;
+  box-shadow: 5px 0 10px rgba(0,0,0,0.2);
   padding: 80px 30px;
-  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.2);
+  transform: translateX(-100%);
   transition: transform 0.3s ease;
   z-index: 1000;
 }
-
 .mobile-menu.show {
   transform: translateX(0);
 }
 
+/* Enlaces dentro del panel */
 .mobile-menu a {
-  display: block;
-  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   color: #301964;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 1.2rem;
   font-weight: bold;
+  margin-bottom: 20px;
 }
 
+/* Flecha mayor al final */
 .mobile-arrow {
-  display: none;
-  margin-left: 8px;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
+/* Responsive: móvil */
 @media (max-width: 768px) {
-  /* icon a la izquierda, logo centrado */
-  header {
-    justify-content: center;
+  /* ocultar menú de escritorio */
+  nav.desktop-menu {
+    display: none;
   }
+  /* mostrar hamburguesa */
   .mobile-menu-icon {
     display: block;
     position: absolute;
     left: 30px;
   }
-
-  /* oculta menú escritorio */
-  nav.desktop-menu {
-    display: none;
+  /* centrar logo */
+  .logo {
+    margin: 0 auto;
+    display: block;
   }
-  /* muestra menú móvil */
+  /* mostrar panel e overlay */
   .mobile-menu {
     display: flex;
     flex-direction: column;
   }
-  /* muestra flechas solo en móvil */
-  .mobile-arrow {
-    display: inline;
+  .overlay.show {
+    display: block;
   }
 }
 
+/* Ocultar flechas en desktop */
+@media (min-width: 769px) {
+  .mobile-arrow {
+    display: none;
+  }
+}
+
+/* Contenido principal */
 main {
   max-width: 1000px;
   margin: 40px auto;
   padding: 0 20px;
 }
-
 section {
   margin-bottom: 50px;
 }
-
-h2 {
-  color: #301964;
-  margin-bottom: 10px;
-}
-
 footer {
   text-align: center;
   padding: 20px;
