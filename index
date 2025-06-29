@@ -1,0 +1,23 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Bienvenido a Hanlo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f8f8f8;
+      padding-top: 100px;
+    }
+    h1 {
+      color: #5c2d91;
+    }
+  </style>
+</head>
+<body>
+  <h1>¡Sitio en construcción!</h1>
+  <p>Bienvenido a la página oficial de <strong>HANLO</strong>.</p>
+</body>
+</html>
