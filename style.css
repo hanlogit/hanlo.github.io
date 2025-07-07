@@ -181,6 +181,38 @@ footer {
   color: #301964;
   margin-bottom: 20px;
 }
+/* HERO: más padding alrededor */
+.hero {
+  background-color: #301964;
+  color: #edebe8;
+  text-align: center;
+  padding: 120px 40px;      /* antes 80px 20px */
+}
+
+/* Contenedor de texto con suficiente margen interno */
+.hero-text {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;           /* relleno horizontal extra */
+}
+
+/* Texto principal: Exo 2, más grande y con espacio */
+.intro-text {
+  font-family: 'Exo 2', sans-serif;
+  font-size: 100px;          /* antes 80px */
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* Responsive: que baje el tamaño en móviles */
+@media (max-width: 768px) {
+  .intro-text {
+    font-size: 48px;         /* más legible en móviles */
+  }
+  .hero {
+    padding: 80px 20px;      /* ajustar padding en móviles */
+  }
+}
 
 
 
