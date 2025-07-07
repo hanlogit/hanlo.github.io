@@ -1,8 +1,9 @@
 // script.js
 document.addEventListener("DOMContentLoaded", () => {
-  const menuIcon = document.querySelector(".mobile-menu-icon");
+  // ——— Menú móvil ———
+  const menuIcon   = document.querySelector(".mobile-menu-icon");
   const mobileMenu = document.getElementById("mobileMenu");
-  const overlay   = document.getElementById("overlay");
+  const overlay    = document.getElementById("overlay");
 
   function toggleMenu() {
     mobileMenu.classList.toggle("show");
@@ -11,4 +12,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   menuIcon.addEventListener("click", toggleMenu);
   overlay.addEventListener("click", toggleMenu);
+
+  // ——— Reveal on scroll ———
+  const reveals = document.querySelectorAll(".reveal");
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  reveals.forEach(el => observer.observe(el));
 });
