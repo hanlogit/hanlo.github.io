@@ -199,7 +199,7 @@ footer {
 /* Texto principal: Exo 2, más grande y con espacio */
 .intro-text {
   font-family: 'Exo 2', sans-serif;
-  font-size: 100px;          /* antes 80px */
+  font-size: 60px;          /* antes 80px */
   line-height: 1.2;
   margin: 0;
 }
@@ -207,11 +207,42 @@ footer {
 /* Responsive: que baje el tamaño en móviles */
 @media (max-width: 768px) {
   .intro-text {
-    font-size: 48px;         /* más legible en móviles */
+    font-size: 25px;         /* más legible en móviles */
   }
   .hero {
     padding: 80px 20px;      /* ajustar padding en móviles */
   }
+}
+/* PRODUCTOS: grid con más espacio y items más grandes */
+.product-grid {
+  display: grid;
+  /* columnas mínimas más anchas */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;                /* más espacio entre items */
+  margin-top: 40px;
+}
+
+/* Cada item con un “marco” gris suave */
+.product-item {
+  background-color: #e8e6e3; /* un gris muy suave, contraste sutil */
+  padding: 15px;             /* espacio interno */
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Imagen más grande al 100% del contenedor */
+.product-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+
+/* Hover “bounce” como antes */
+.product-item img:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
 }
 
 
