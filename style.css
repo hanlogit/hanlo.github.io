@@ -95,22 +95,18 @@ nav.desktop-menu a:hover {
 
 /* Responsive: móvil */
 @media (max-width: 768px) {
-  /* ocultar menú de escritorio */
   nav.desktop-menu {
     display: none;
   }
-  /* mostrar hamburguesa */
   .mobile-menu-icon {
     display: block;
     position: absolute;
     left: 30px;
   }
-  /* centrar logo */
   .logo {
     margin: 0 auto;
     display: block;
   }
-  /* mostrar panel e overlay */
   .mobile-menu {
     display: flex;
     flex-direction: column;
@@ -141,26 +137,35 @@ footer {
   padding: 20px;
   color: #301964;
 }
-/* GRID de productos */
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 20px;
-  margin-top: 30px;
+
+/* HERO */
+.hero {
+  background-color: #301964;
+  color: #edebe8;
+  text-align: center;
+  padding: 120px 40px;
+}
+.hero-text {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.intro-text {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 100px;
+  line-height: 1.2;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .intro-text {
+    font-size: 48px;
+  }
+  .hero {
+    padding: 80px 20px;
+  }
 }
 
-/* Cada imagen salta al hover */
-.product-item img {
-  width: 100%;
-  display: block;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.product-item img:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
-
-/* Reveal on scroll (si no lo tienes ya) */
+/* Reveal on scroll */
 .reveal {
   opacity: 0;
   transform: translateY(20px);
@@ -171,105 +176,50 @@ footer {
   transform: none;
 }
 
-/* Ajustes de sección */
+/* Ajustes de sección Productos */
 #productos {
   padding: 60px 20px;
-  background-color: #edebe8; /* opcional: contraste con hero */
+  background-color: #edebe8;
 }
 #productos h2 {
   text-align: center;
   color: #301964;
   margin-bottom: 20px;
 }
-/* HERO: más padding alrededor */
-.hero {
-  background-color: #301964;
-  color: #edebe8;
-  text-align: center;
-  padding: 120px 40px;      /* antes 80px 20px */
-}
 
-/* Contenedor de texto con suficiente margen interno */
-.hero-text {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 20px;           /* relleno horizontal extra */
-}
-
-/* Texto principal: Exo 2, más grande y con espacio */
-.intro-text {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 60px;          /* antes 80px */
-  line-height: 1.2;
-  margin: 0;
-}
-
-/* Responsive: que baje el tamaño en móviles */
-@media (max-width: 768px) {
-  .intro-text {
-    font-size: 25px;         /* más legible en móviles */
-  }
-  .hero {
-    padding: 80px 20px;      /* ajustar padding en móviles */
-  }
-}
-/* PRODUCTOS: grid con más espacio y items más grandes */
+/* GRID de productos centrado */
 .product-grid {
   display: grid;
-  /* columnas mínimas más anchas */
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 40px;                /* más espacio entre items */
-  margin-top: 40px;
+  gap: 40px;
+  margin: 30px auto;
+  max-width: 1400px;
+  justify-content: center;
 }
 
-/* Cada item con un “marco” gris suave */
-.product-item {
-  background-color: #e8e6e3; /* un gris muy suave, contraste sutil */
-  padding: 15px;             /* espacio interno */
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Imagen más grande al 100% del contenedor */
-.product-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 4px;
-}
-
-/* Hover “bounce” como antes */
-.product-item img:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-}
-/* ————————————————————————————————
-   Productos: item de tamaño fijo y centrado
-————————————————————————————————— */
-
-/* Fija la altura de cada item para que sean todos iguales */
+/* Cada item con altura fija y centrado */
 .product-item {
   background-color: #e8e6e3;
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
-  /* Nuevo: igualar altura y centrar imagen dentro */
-  height: 240px;             /* ajusta este valor al alto deseado */
+
+  height: 240px;             /* misma altura para todos */
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;          /* por si algo sobresale */
+  overflow: visible;          /* no recorta la imagen */
 }
 
-/* Que la imagen no deforme y llene el alto del contenedor */
+/* Imagen escala según la altura, manteniendo proporción */
 .product-item img {
-  max-height: 100%;          /* ocupará toda la altura del item */
-  width: auto;               /* ajusta ancho proporcional */
+  height: 100%;
+  width: auto;
+  object-fit: contain;
   display: block;
   border-radius: 4px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Hover “bounce” */
@@ -277,19 +227,5 @@ footer {
   transform: translateY(-10px) scale(1.05);
   box-shadow: 0 8px 16px rgba(0,0,0,0.1);
 }
-
-/* ————————————————————————————————
-   Grid centrado en pantallas grandes
-————————————————————————————————— */
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 40px;
-  margin-top: 30px;
-
-  /* Nuevo: centrar los items si la última fila queda suelta */
-  justify-content: center;
-}
-
 
 
