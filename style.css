@@ -610,3 +610,49 @@ header {
     line-height: 1.75;
   }
 }
+/* ─────────────────────────────────────────
+   Sección Servicios y Nuestro Proceso
+   ───────────────────────────────────────── */
+#servicios h2,
+#proceso h2 {
+  /* más “espacio” a la izquierda (padding) */
+  padding-left: 2.5rem;        /* antes 1.5rem */
+  /* fondo negro como en el hero */
+  background-color: #301964;
+  /* texto en blanco para buen contraste */
+  color: #fff;
+  /* mismos tamaños y peso de letra que ya definiste */
+}
+
+/* aplicar igual en móvil */
+@media (max-width: 768px) {
+  #servicios h2,
+  #proceso h2 {
+    padding-left: 2rem;
+    font-size: 2rem;           /* ajusta si hace falta */
+    background-color: #301964;
+    color: #fff;
+  }
+}
+
+/* ─────────────────────────────────────────
+   Slider “Quiénes Somos”: sólo 1 slide visible
+   ───────────────────────────────────────── */
+.slider {
+  overflow: hidden;            /* oculta los otros slides */
+}
+.slides {
+  display: flex;
+  /* no modifiques el transform aquí */
+}
+.slide {
+  flex: 0 0 100%;              /* cada slide ocupa el 100% */
+  box-sizing: border-box;      /* padding incluido en ese 100% */
+}
+
+/* ─────────────────────────────────────────
+   Ajuste de flechas: que recorran de a uno
+   (si tu JS está igual, con flex:0 0 100% bastará) 
+   ───────────────────────────────────────── */
+/* No se requieren cambios en tu JS: 
+   transform: translateX(-current*100%) ahora sólo mostrará un slide a la vez */
