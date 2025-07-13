@@ -560,19 +560,23 @@ header {
    Hero: texto principal
    ———————————————— */
 #hero .intro-text {
-  display: inline-block;            /* para que el background no ocupe todo el ancho */
-  background-color: ##301964;           /* fondo negro */
-  color: #fff;                      /* texto blanco */
-  padding: 0.75rem 1.5rem;          /* espacio interior */
-  border-left: 12px solid #301964; /* borde izquierdo destacado */
-  font-size: 4rem;                  /* letra muy grande en desktop */
+  display: inline-block;
+  background-color: #301964;           /* color de marca */
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-left: 12px solid #301964;
+  font-size: 4rem;
   line-height: 1.2;
+
+  /* Nuevo sombreado */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
+
 
 /* Responsive: hero en móviles */
 @media (max-width: 768px) {
   #hero .intro-text {
-    font-size: 2.5rem;              /* ajuste de tamaño */
+    font-size: 2.2rem;              /* ajuste de tamaño */
     border-left-width: 8px;         /* borde proporcional */
     padding: 0.5rem 1rem;
   }
