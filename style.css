@@ -462,4 +462,85 @@ section {
 .address span, .rights span {
   line-height: 1.4;
 }
+/* ================================
+   Ajustes Globales para Responsive
+   ================================ */
+
+/* Asegurar encabezado y menú sobre el contenido */
+header {
+  position: relative;
+  z-index: 1002;
+}
+
+/* El overlay y el panel móvil deben ir debajo del header */
+.mobile-menu {
+  z-index: 1001;
+}
+.overlay {
+  z-index: 1000;
+}
+
+/* ================================
+   Media Queries para pantallas ≤768px
+   ================================ */
+@media (max-width: 768px) {
+  /* Mostrar solo icono hamburguesa */
+  nav.desktop-menu {
+    display: none;
+  }
+  .mobile-menu-icon {
+    display: block;
+    z-index: 1003; /* por encima de todo */
+  }
+
+  /* Logo más pequeño para que no se corte */
+  .logo img {
+    width: 40px;
+    height: auto;
+  }
+
+  /* Asegurar que el panel móvil cubra el 60% */
+  .mobile-menu {
+    width: 60%;
+  }
+
+  /* Quiénes Somos: slide apilados y texto legible */
+  .slide {
+    flex-direction: column !important;
+    padding: 1.5rem !important;
+    gap: 1.5rem !important;
+  }
+  .slide-image {
+    flex: 0 0 auto !important;
+    width: 100%;
+    max-width: 180px;
+    margin: 0 auto;
+  }
+  .slide-text {
+    margin-top: 0 !important;
+  }
+  .slide-text h3 {
+    text-align: center;
+  }
+  .slide-text p {
+    font-size: 15px;
+  }
+
+  /* Espacio inferior extra para no cortar contenido */
+  section#quienes-somos {
+    padding-bottom: 2rem;
+  }
+}
+/* Logo por defecto (escritorio) */
+.logo img {
+  width: 80px;    /* antes 48px, ahora más grande */
+  height: auto;
+}
+
+/* Móvil: un poco más pequeño que en escritorio */
+@media (max-width: 768px) {
+  .logo img {
+    width: 60px;  /* ajusta según te guste */
+  }
+}
 
