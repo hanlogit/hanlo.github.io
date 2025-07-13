@@ -216,123 +216,7 @@ section {
 .social-icons a img:hover {
   transform: scale(1.1);
 }
-/* Slider Quiénes Somos */
-.slider {
-  background: #edebe8;
-  padding: 2rem;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  margin-bottom: 4rem;
-}
 
-.slides {
-  display: flex;
-  transition: transform 0.6s ease-in-out;
-}
-
-/* Cada “página” */
-.slide {
-  flex: 0 0 100%;
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-/* Imagen */
-.slide-image {
-  flex: 0 0 240px;
-}
-.slide-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Texto */
-.slide-text {
-  flex: 1;
-}
-.slide-text h3 {
-  font-size: 26px;
-  font-weight: 700;
-  color: #301964;
-  margin-bottom: 1rem;
-}
-.slide-text p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #301964;
-}
-
-/* Botones Prev/Next */
-.slider-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(48,25,100,0.8);
-  color: #fff;
-  border: none;
-  font-size: 2rem;
-  width: 48px;
-  height: 48px;
-  cursor: pointer;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.slider-nav.prev {
-  left: 1rem;
-}
-.slider-nav.next {
-  right: 1rem;
-}
-
-/* Dots indicadores */
-.slider-dots {
-  text-align: center;
-  margin-top: 1.5rem;
-}
-.slider-dots .dot {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  margin: 0 6px;
-  background: #ccc;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-.slider-dots .dot.active {
-  background: #301964;
-}
-/* 1) Box-sizing global para que el padding no desborde */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-/* 2) Asegurar que el contenedor no muestre slides vecinos */
-.slider {
-  overflow: hidden;
-}
-
-/* 3) Padding extra en cada slide para agrandar bordes lateral */
-.slide {
-  /* ya tenías flex: 0 0 100%; … */
-  padding: 0 4rem;       /* ajusta los 4rem a lo que prefieras */
-}
-
-/* 4) Fondos independientes por slide */
-.slider .slide:nth-of-type(1) {
-  background-color: #edebe8;   /* Quiénes somos */
-}
-.slider .slide:nth-of-type(2) {
-  background-color: #fefaf5;   /* Misión */
-}
-.slider .slide:nth-of-type(3) {
-  background-color: #fcf4e5;   /* Visión */
-}
 /* = Contacto = */
 #contacto {
   background: #edebe8;
@@ -504,27 +388,6 @@ header {
     width: 60%;
   }
 
-  /* Quiénes Somos: slide apilados y texto legible */
-  .slide {
-    flex-direction: column !important;
-    padding: 1.5rem !important;
-    gap: 1.5rem !important;
-  }
-  .slide-image {
-    flex: 0 0 auto !important;
-    width: 100%;
-    max-width: 180px;
-    margin: 0 auto;
-  }
-  .slide-text {
-    margin-top: 0 !important;
-  }
-  .slide-text h3 {
-    text-align: center;
-  }
-  .slide-text p {
-    font-size: 15px;
-  }
 
   /* Espacio inferior extra para no cortar contenido */
   section#quienes-somos {
@@ -533,14 +396,14 @@ header {
 }
 /* Logo por defecto (escritorio) */
 .logo img {
-  width: 80px;    /* antes 48px, ahora más grande */
+  width: 120px;    /* antes 48px, ahora más grande */
   height: auto;
 }
 
 /* Móvil: un poco más pequeño que en escritorio */
 @media (max-width: 768px) {
   .logo img {
-    width: 60px;  /* ajusta según te guste */
+    width: 80px;  /* ajusta según te guste */
   }
 }
 
@@ -606,35 +469,6 @@ header {
   }
 }
 
-/* ─────────────────────────────────────────
-   Slider “Quiénes Somos”: sólo 1 slide visible
-   ───────────────────────────────────────── */
-.slider {
-  overflow: hidden;            /* oculta los otros slides */
-}
-.slides {
-  display: flex;
-  /* no modifiques el transform aquí */
-}
-.slide {
-  flex: 0 0 100%;              /* cada slide ocupa el 100% */
-  box-sizing: border-box;      /* padding incluido en ese 100% */
-}
-/* ─────────────────────────────────────────
-   Slider “Quiénes Somos”: ancho correcto
-   ───────────────────────────────────────── */
-#quienes-somos .slides {
-  display: flex;
-  width: 300%;               /* 3 slides × 100% cada uno */
-  transition: transform 0.6s ease-in-out;
-}
-
-#quienes-somos .slide {
-  flex: 0 0 100%;            /* ni crece, ni encoge, mide 100% */
-  max-width: 100%;           /* asegura que no pase ese 100% */
-  box-sizing: border-box;    /* padding y border se incluyen en el 100% */
-}
-
 /* Estilos para el “icono hamburguesa” */
 .mobile-menu-icon {
   background: none;
@@ -664,6 +498,144 @@ header {
     top: 50%;
     left: 1rem;
     transform: translateY(-50%);
+  }
+}
+/* ===========================================================================
+   Slider “Quiénes Somos” – Styles Consolidated
+   =========================================================================== */
+
+/* Contenedor principal del slider */
+#quienes-somos .slider {
+  background: #edebe8;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  margin: 4rem auto;
+  max-width: 1200px;
+}
+
+/* Pista de slides: ancho = número de slides × 100% */
+#quienes-somos .slides {
+  display: flex;
+  width: 300%;                     /* 3 slides × 100% cada uno */
+  transition: transform 0.6s ease-in-out;
+}
+
+/* Cada slide ocupa el 100% y centra su contenido */
+#quienes-somos .slide {
+  flex: 0 0 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* Imagen: 50% de ancho en desktop */
+#quienes-somos .slide-image {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+#quienes-somos .slide-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Texto: 50% de ancho + padding interior */
+#quienes-somos .slide-text {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+#quienes-somos .slide-text h3 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #301964;
+  margin-bottom: 1rem;
+}
+#quienes-somos .slide-text p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #301964;
+}
+
+/* Fondos independientes para cada slide */
+#quienes-somos .slide:nth-of-type(1) { background-color: #edebe8; }
+#quienes-somos .slide:nth-of-type(2) { background-color: #fefaf5; }
+#quienes-somos .slide:nth-of-type(3) { background-color: #fcf4e5; }
+
+/* Botones de navegación Prev/Next */
+#quienes-somos .slider-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(48,25,100,0.8);
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+#quienes-somos .slider-nav.prev { left: 1rem; }
+#quienes-somos .slider-nav.next { right: 1rem; }
+
+/* Indicadores (dots) */
+#quienes-somos .slider-dots {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+#quienes-somos .slider-dots .dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 6px;
+  background: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+#quienes-somos .slider-dots .dot.active {
+  background: #301964;
+}
+
+/* ===========================================================================
+   Responsive: versiones para móviles y tabletas (≤768px)
+   =========================================================================== */
+@media (max-width: 768px) {
+  #quienes-somos .slide {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  #quienes-somos .slide-image {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+  #quienes-somos .slide-text {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+  #quienes-somos .slide-text h3 {
+    font-size: 22px;
+    text-align: center;
+  }
+  #quienes-somos .slide-text p {
+    font-size: 15px;
+    text-align: center;
   }
 }
 
