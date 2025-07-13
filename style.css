@@ -15,17 +15,19 @@ header {
   padding: 20px 30px;
   position: relative;
 }
-
-/* Logo */
-.logo {
-  width: 140px;
-  height: auto;
+.logo img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease;
 }
-
-/* Menú de escritorio */
-nav.desktop-menu {
+nav.desktop-menu ul {
+  list-style: none;
   display: flex;
-  gap: 30px;
+  gap: 1.5rem;
 }
 nav.desktop-menu a {
   color: #301964;
@@ -74,8 +76,6 @@ nav.desktop-menu a:hover {
 .mobile-menu.show {
   transform: translateX(0);
 }
-
-/* Enlaces dentro del panel */
 .mobile-menu a {
   display: flex;
   justify-content: space-between;
@@ -86,9 +86,7 @@ nav.desktop-menu a:hover {
   font-weight: bold;
   margin-bottom: 20px;
 }
-
-/* Flecha mayor al final */
-.mobile-arrow {
+.mobile-menu a .mobile-arrow {
   font-size: 1.5rem;
   font-weight: bold;
 }
@@ -100,8 +98,6 @@ nav.desktop-menu a:hover {
   }
   .mobile-menu-icon {
     display: block;
-    position: absolute;
-    left: 30px;
   }
   .logo {
     margin: 0 auto;
@@ -115,8 +111,7 @@ nav.desktop-menu a:hover {
     display: block;
   }
 }
-
-/* Ocultar flechas en desktop */
+/* Responsive: desktop */
 @media (min-width: 769px) {
   .mobile-arrow {
     display: none;
@@ -132,40 +127,8 @@ main {
 section {
   margin-bottom: 50px;
 }
-footer {
-  text-align: center;
-  padding: 20px;
-  color: #301964;
-}
 
-/* HERO */
-.hero {
-  background-color: #301964;
-  color: #edebe8;
-  text-align: center;
-  padding: 120px 40px;
-}
-.hero-text {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-.intro-text {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 100px;
-  line-height: 1.2;
-  margin: 0;
-}
-@media (max-width: 768px) {
-  .intro-text {
-    font-size: 48px;
-  }
-  .hero {
-    padding: 80px 20px;
-  }
-}
-
-/* Reveal on scroll */
+/* Animación Reveal */
 .reveal {
   opacity: 0;
   transform: translateY(20px);
@@ -176,40 +139,81 @@ footer {
   transform: none;
 }
 
-/* Ajustes de sección Productos */
-#productos {
-  padding: 60px 20px;
-  background-color: #edebe8;
+/* Hero con background de imagen */
+#hero {
+  background: url('fondo.png') no-repeat center/cover;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  padding: 4rem 2rem;
+  position: relative;
+  color: #fff;
 }
-#productos h2 {
+
+/* Ajustes de sección Servicios */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+.service-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+.service-item h3 {
   text-align: center;
+  margin-top: 0.5rem;
+  font-size: 1.25rem;
   color: #301964;
-  margin-bottom: 20px;
+}
+
+/* Ajustes de sección Nuestro Proceso */
+.proceso-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+.proceso-item img {
+  width: 80px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.proceso-item h3 {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #301964;
 }
 
 /* Iconos sociales fijos en pantalla */
 .social-icons {
   position: fixed;
-  bottom: 20px;        /* espacio desde abajo */
-  right: 20px;         /* espacio desde la derecha */
+  bottom: 20px;
+  right: 20px;
   display: flex;
   flex-direction: column;
-  gap: 15px;           /* separación entre íconos */
+  gap: 15px;
   z-index: 10000;
 }
-
 .social-icons a img {
-  width: 48px;         /* ajusta tamaño al gusto */
+  width: 48px;
   height: 48px;
   object-fit: contain;
-  background: #ffffff; /* círculo blanco detrás */
+  background: #ffffff;
   border-radius: 50%;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   transition: transform 0.2s ease;
 }
-
 .social-icons a img:hover {
   transform: scale(1.1);
 }
-
 
