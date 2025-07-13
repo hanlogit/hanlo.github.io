@@ -1,4 +1,9 @@
-/* Reset y tipografía */
+/* ─────────────────────────────────────────
+   Reset global y base
+   ───────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   padding: 0;
@@ -7,19 +12,22 @@ body {
   color: #301964;
 }
 
-/* Header */
+/* ─────────────────────────────────────────
+   Header y navegación
+   ───────────────────────────────────────── */
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 20px 30px;
   position: relative;
+  z-index: 1002;
 }
 .logo img {
   width: 80px;
   height: 80px;
   object-fit: contain;
-  background: #ffffff;
+  background: #fff;
   border-radius: 50%;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   transition: transform 0.2s ease;
@@ -39,27 +47,35 @@ nav.desktop-menu a:hover {
   text-decoration: underline;
 }
 
-/* Icono hamburguesa (invisible en desktop) */
+/* Botón hamburguesa */
 .mobile-menu-icon {
   display: none;
-  font-size: 28px;
-  color: #301964;
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
   background: none;
   border: none;
   cursor: pointer;
+  z-index: 1003;
+}
+.mobile-menu-icon img {
+  width: 100%;
+  height: 100%;
+  filter: invert(21%) sepia(82%) saturate(1820%) hue-rotate(248deg) brightness(59%) contrast(94%);
 }
 
-/* Overlay traslúcido para cerrar menú */
+/* Overlay y panel móvil */
 .overlay {
   display: none;
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
   background: transparent;
-  z-index: 999;
+  z-index: 1000;
 }
-
-/* Panel móvil (oculto por defecto) */
 .mobile-menu {
   display: none;
   position: fixed;
@@ -71,7 +87,8 @@ nav.desktop-menu a:hover {
   padding: 80px 30px;
   transform: translateX(-100%);
   transition: transform 0.3s ease;
-  z-index: 1000;
+  z-index: 1001;
+  flex-direction: column;
 }
 .mobile-menu.show {
   transform: translateX(0);
@@ -86,12 +103,14 @@ nav.desktop-menu a:hover {
   font-weight: bold;
   margin-bottom: 20px;
 }
-.mobile-menu a .mobile-arrow {
+.mobile-menu .mobile-arrow {
   font-size: 1.5rem;
   font-weight: bold;
 }
 
-/* Responsive: móvil */
+/* ─────────────────────────────────────────
+   Responsive: móvil (≤768px)
+   ───────────────────────────────────────── */
 @media (max-width: 768px) {
   nav.desktop-menu {
     display: none;
@@ -99,26 +118,30 @@ nav.desktop-menu a:hover {
   .mobile-menu-icon {
     display: block;
   }
-  .logo {
-    margin: 0 auto;
-    display: block;
+  .logo img {
+    width: 60px;
+    height: auto;
   }
   .mobile-menu {
     display: flex;
-    flex-direction: column;
   }
   .overlay.show {
     display: block;
   }
 }
-/* Responsive: desktop */
+
+/* ─────────────────────────────────────────
+   Responsive: desktop (≥769px)
+   ───────────────────────────────────────── */
 @media (min-width: 769px) {
   .mobile-arrow {
     display: none;
   }
 }
 
-/* Contenido principal */
+/* ─────────────────────────────────────────
+   Contenido principal
+   ───────────────────────────────────────── */
 main {
   max-width: 1000px;
   margin: 40px auto;
@@ -128,7 +151,9 @@ section {
   margin-bottom: 50px;
 }
 
-/* Animación Reveal */
+/* ─────────────────────────────────────────
+   Animación “Reveal on scroll”
+   ───────────────────────────────────────── */
 .reveal {
   opacity: 0;
   transform: translateY(20px);
@@ -139,7 +164,9 @@ section {
   transform: none;
 }
 
-/* Hero con background de imagen */
+/* ─────────────────────────────────────────
+   Hero / Banner
+   ───────────────────────────────────────── */
 #hero {
   background: url('fondo.png') no-repeat center/cover;
   min-height: 80vh;
@@ -149,8 +176,45 @@ section {
   position: relative;
   color: #fff;
 }
+#hero .intro-text {
+  display: inline-block;
+  background-color: #301964;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-left: 12px solid #301964;
+  font-size: 4rem;
+  line-height: 1.2;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+@media (max-width: 768px) {
+  #hero .intro-text {
+    font-size: 2.2rem;
+    border-left-width: 8px;
+    padding: 0.5rem 1rem;
+  }
+}
 
-/* Ajustes de sección Servicios */
+/* ─────────────────────────────────────────
+   Servicios
+   ───────────────────────────────────────── */
+#servicios {
+  margin: 4rem 0;
+}
+#servicios h2 {
+  border-left: 12px solid #301964;
+  padding-left: 2.5rem;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  background-color: #000;
+  color: #fff;
+}
+@media (max-width: 768px) {
+  #servicios h2 {
+    padding-left: 2rem;
+    font-size: 2rem;
+  }
+}
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
@@ -161,8 +225,6 @@ section {
 }
 .service-item img {
   width: 100%;
-  height: auto;
-  display: block;
   border-radius: 8px;
 }
 .service-item h3 {
@@ -172,7 +234,27 @@ section {
   color: #301964;
 }
 
-/* Ajustes de sección Nuestro Proceso */
+/* ─────────────────────────────────────────
+   Nuestro Proceso
+   ───────────────────────────────────────── */
+#proceso {
+  margin: 4rem 0;
+}
+#proceso h2 {
+  border-left: 12px solid #301964;
+  padding-left: 2.5rem;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  background-color: #000;
+  color: #fff;
+}
+@media (max-width: 768px) {
+  #proceso h2 {
+    padding-left: 2rem;
+    font-size: 2rem;
+  }
+}
 .proceso-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
@@ -183,7 +265,6 @@ section {
 }
 .proceso-item img {
   width: 80px;
-  height: auto;
   display: block;
   margin: 0 auto;
 }
@@ -194,146 +275,121 @@ section {
   color: #301964;
 }
 
-/* Iconos sociales fijos en pantalla */
-.social-icons {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  z-index: 10000;
-}
-.social-icons a img {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-  background: #ffffff;
-  border-radius: 50%;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  transition: transform 0.2s ease;
-}
-.social-icons a img:hover {
-  transform: scale(1.1);
-}
-/* Slider Quiénes Somos */
-.slider {
+/* ─────────────────────────────────────────
+   Slider “Quiénes Somos” – CSS consolidado
+   ───────────────────────────────────────── */
+#quienes-somos .slider {
   background: #edebe8;
-  padding: 2rem;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  margin-bottom: 4rem;
+  margin: 4rem auto;
+  max-width: 1000px;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
 }
-
-.slides {
+#quienes-somos .slides {
   display: flex;
+  width: 300%;
   transition: transform 0.6s ease-in-out;
 }
-
-/* Cada “página” */
-.slide {
+#quienes-somos .slide {
   flex: 0 0 100%;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 2rem;
 }
-
-/* Imagen */
-.slide-image {
-  flex: 0 0 240px;
+#quienes-somos .slide-image {
+  flex: 0 0 auto;
+  max-width: 240px;
 }
-.slide-image img {
+#quienes-somos .slide-image img {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 8px;
 }
-
-/* Texto */
-.slide-text {
-  flex: 1;
+#quienes-somos .slide-text {
+  max-width: 600px;
+  padding: 0 3rem;
 }
-.slide-text h3 {
-  font-size: 26px;
+#quienes-somos .slide-text h3 {
+  font-size: 32px;
   font-weight: 700;
   color: #301964;
   margin-bottom: 1rem;
 }
-.slide-text p {
-  font-size: 16px;
-  line-height: 1.6;
+#quienes-somos .slide-text p {
+  font-size: 18px;
+  line-height: 1.75;
   color: #301964;
 }
-
-/* Botones Prev/Next */
-.slider-nav {
+#quienes-somos .slider-nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  width: 48px; height: 48px;
   background: rgba(48,25,100,0.8);
-  color: #fff;
   border: none;
-  font-size: 2rem;
-  width: 48px;
-  height: 48px;
-  cursor: pointer;
   border-radius: 50%;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 10;
 }
-.slider-nav.prev {
+#quienes-somos .slider-nav.prev {
   left: 1rem;
 }
-.slider-nav.next {
+#quienes-somos .slider-nav.next {
   right: 1rem;
 }
-
-/* Dots indicadores */
-.slider-dots {
+#quienes-somos .slider-dots {
   text-align: center;
   margin-top: 1.5rem;
 }
-.slider-dots .dot {
+#quienes-somos .slider-dots .dot {
   display: inline-block;
-  width: 12px;
-  height: 12px;
+  width: 12px; height: 12px;
   margin: 0 6px;
   background: #ccc;
   border-radius: 50%;
   cursor: pointer;
   transition: background 0.3s;
 }
-.slider-dots .dot.active {
+#quienes-somos .slider-dots .dot.active {
   background: #301964;
 }
-/* 1) Box-sizing global para que el padding no desborde */
-*, *::before, *::after {
-  box-sizing: border-box;
+/* Responsive slider ≤768px */
+@media (max-width: 768px) {
+  #quienes-somos .slide {
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+    gap: 1.5rem;
+  }
+  #quienes-somos .slide-image {
+    max-width: 160px;
+    margin: 0 auto;
+  }
+  #quienes-somos .slide-text {
+    padding: 0 1rem;
+  }
+  #quienes-somos .slide-text h3 {
+    font-size: 24px;
+    text-align: center;
+  }
+  #quienes-somos .slide-text p {
+    font-size: 15px;
+    text-align: center;
+  }
 }
 
-/* 2) Asegurar que el contenedor no muestre slides vecinos */
-.slider {
-  overflow: hidden;
-}
-
-/* 3) Padding extra en cada slide para agrandar bordes lateral */
-.slide {
-  /* ya tenías flex: 0 0 100%; … */
-  padding: 0 4rem;       /* ajusta los 4rem a lo que prefieras */
-}
-
-/* 4) Fondos independientes por slide */
-.slider .slide:nth-of-type(1) {
-  background-color: #edebe8;   /* Quiénes somos */
-}
-.slider .slide:nth-of-type(2) {
-  background-color: #fefaf5;   /* Misión */
-}
-.slider .slide:nth-of-type(3) {
-  background-color: #fcf4e5;   /* Visión */
-}
-/* = Contacto = */
+/* ─────────────────────────────────────────
+   Formulario de Contacto
+   ───────────────────────────────────────── */
 #contacto {
   background: #edebe8;
   padding: 3rem 2rem;
@@ -341,7 +397,6 @@ section {
   margin: 0 auto 4rem;
   box-shadow: 0 8px 24px rgba(0,0,0,0.1);
 }
-
 #contacto h2 {
   font-size: 28px;
   font-weight: 700;
@@ -349,18 +404,15 @@ section {
   text-align: center;
   margin-bottom: 1.5rem;
 }
-
 #contactForm {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-
 #contactForm label {
   font-weight: 600;
   color: #301964;
 }
-
 #contactForm input,
 #contactForm textarea {
   padding: 0.75rem 1rem;
@@ -372,13 +424,11 @@ section {
   background: #fff;
   transition: border-color 0.2s;
 }
-
 #contactForm input:focus,
 #contactForm textarea:focus {
   border-color: #301964;
   outline: none;
 }
-
 #contactForm button {
   align-self: flex-start;
   background: #301964;
@@ -391,17 +441,18 @@ section {
   cursor: pointer;
   transition: background 0.2s;
 }
-
 #contactForm button:hover {
   background: #4b338f;
 }
-/* === INFO DE CONTACTO === */
+
+/* ─────────────────────────────────────────
+   Información de contacto
+   ───────────────────────────────────────── */
 #info-contact {
   background: #301964;
   color: #fff;
   padding: 3rem 1rem;
 }
-
 .info-container {
   display: flex;
   flex-wrap: wrap;
@@ -410,31 +461,25 @@ section {
   max-width: 1000px;
   margin: 0 auto 2rem;
 }
-
 .info-item {
   display: flex;
   align-items: center;
   gap: 0.75rem;
   font-size: 1rem;
 }
-
 .info-item img {
   width: 28px;
   height: 28px;
   filter: brightness(0) invert(1);
 }
-
 .info-item a {
   color: #fff;
   text-decoration: none;
   transition: opacity 0.2s;
 }
-
 .info-item a:hover {
   opacity: 0.8;
 }
-
-/* Dirección y derechos */
 .info-footer {
   max-width: 1000px;
   margin: 0 auto;
@@ -445,316 +490,17 @@ section {
   justify-content: space-between;
   gap: 1.5rem;
 }
-
 .address, .rights {
   display: flex;
   align-items: center;
   gap: 0.75rem;
   font-size: 0.9rem;
 }
-
 .address img, .rights img {
   width: 20px;
   height: 20px;
   filter: brightness(0) invert(1);
 }
-
 .address span, .rights span {
   line-height: 1.4;
-}
-/* ================================
-   Ajustes Globales para Responsive
-   ================================ */
-
-/* Asegurar encabezado y menú sobre el contenido */
-header {
-  position: relative;
-  z-index: 1002;
-}
-
-/* El overlay y el panel móvil deben ir debajo del header */
-.mobile-menu {
-  z-index: 1001;
-}
-.overlay {
-  z-index: 1000;
-}
-
-/* ================================
-   Media Queries para pantallas ≤768px
-   ================================ */
-@media (max-width: 768px) {
-  /* Mostrar solo icono hamburguesa */
-  nav.desktop-menu {
-    display: none;
-  }
-  .mobile-menu-icon {
-    display: block;
-    z-index: 1003; /* por encima de todo */
-  }
-
-  /* Logo más pequeño para que no se corte */
-  .logo img {
-    width: 40px;
-    height: auto;
-  }
-
-  /* Asegurar que el panel móvil cubra el 60% */
-  .mobile-menu {
-    width: 60%;
-  }
-
-  /* Quiénes Somos: slide apilados y texto legible */
-  .slide {
-    flex-direction: column !important;
-    padding: 1.5rem !important;
-    gap: 1.5rem !important;
-  }
-  .slide-image {
-    flex: 0 0 auto !important;
-    width: 100%;
-    max-width: 180px;
-    margin: 0 auto;
-  }
-  .slide-text {
-    margin-top: 0 !important;
-  }
-  .slide-text h3 {
-    text-align: center;
-  }
-  .slide-text p {
-    font-size: 15px;
-  }
-
-  /* Espacio inferior extra para no cortar contenido */
-  section#quienes-somos {
-    padding-bottom: 2rem;
-  }
-}
-/* Logo por defecto (escritorio) */
-.logo img {
-  width: 80px;    /* antes 48px, ahora más grande */
-  height: auto;
-}
-
-/* Móvil: un poco más pequeño que en escritorio */
-@media (max-width: 768px) {
-  .logo img {
-    width: 60px;  /* ajusta según te guste */
-  }
-}
-
-/* ————————————————
-   Secciones Servicios y Proceso
-   ———————————————— */
-#servicios h2,
-#proceso h2 {
-  border-left: 12px solid #301964;  /* borde más grueso */
-  padding-left: 1.5rem;             /* espacio entre borde y texto */
-  font-size: 2.5rem;                /* letras más grandes */
-  font-weight: 800;                 /* más gruesas */
-  margin-bottom: 1.5rem;
-}
-
-/* ————————————————
-   Hero: texto principal
-   ———————————————— */
-#hero .intro-text {
-  display: inline-block;
-  background-color: #301964;           /* color de marca */
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  border-left: 12px solid #301964;
-  font-size: 4rem;
-  line-height: 1.2;
-
-  /* Nuevo sombreado */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-}
-
-
-/* Responsive: hero en móviles */
-@media (max-width: 768px) {
-  #hero .intro-text {
-    font-size: 2.2rem;              /* ajuste de tamaño */
-    border-left-width: 8px;         /* borde proporcional */
-    padding: 0.5rem 1rem;
-  }
-}
-/* ————————————————
-   Ajustes “Quiénes Somos” (solo web)
-   ———————————————— */
-@media (min-width: 769px) {
-  /* Limitar ancho de cada slide y centrarlo */
-  #quienes-somos .slide {
-    max-width: 900px;               /* menos anchura */
-    margin: 0 auto;                 /* centrar */
-    padding: 2rem 3rem;             /* más espacio interior */
-    border: 4px solid #301964;      /* borde más grueso */
-    border-radius: 8px;
-    gap: 2.5rem;                    /* separar imagen/texto */
-  }
-
-  /* Imagen más grande */
-  #quienes-somos .slide-image img {
-    max-width: 280px;
-    width: 100%;
-    height: auto;
-  }
-
-  /* Título un poco más grande */
-  #quienes-somos .slide-text h3 {
-    font-size: 32px;
-    margin-bottom: 1rem;
-  }
-
-  /* Texto más grande y legible */
-  #quienes-somos .slide-text p {
-    font-size: 18px;
-    line-height: 1.75;
-  }
-}
-/* ─────────────────────────────────────────
-   Sección Servicios y Nuestro Proceso
-   ───────────────────────────────────────── */
-#servicios h2,
-#proceso h2 {
-  /* más “espacio” a la izquierda (padding) */
-  padding-left: 2.5rem;        /* antes 1.5rem */
-  /* fondo negro como en el hero */
-  background-color: #301964;
-  /* texto en blanco para buen contraste */
-  color: #fff;
-  /* mismos tamaños y peso de letra que ya definiste */
-}
-
-/* aplicar igual en móvil */
-@media (max-width: 768px) {
-  #servicios h2,
-  #proceso h2 {
-    padding-left: 2rem;
-    font-size: 2rem;           /* ajusta si hace falta */
-    background-color: #301964;
-    color: #fff;
-  }
-}
-
-/* ─────────────────────────────────────────
-   Slider “Quiénes Somos”: sólo 1 slide visible
-   ───────────────────────────────────────── */
-.slider {
-  overflow: hidden;            /* oculta los otros slides */
-}
-.slides {
-  display: flex;
-  /* no modifiques el transform aquí */
-}
-.slide {
-  flex: 0 0 100%;              /* cada slide ocupa el 100% */
-  box-sizing: border-box;      /* padding incluido en ese 100% */
-}
-/* ─────────────────────────────────────────
-   Slider “Quiénes Somos”: ancho correcto
-   ───────────────────────────────────────── */
-#quienes-somos .slides {
-  display: flex;
-  width: 300%;               /* 3 slides × 100% cada uno */
-  transition: transform 0.6s ease-in-out;
-}
-
-#quienes-somos .slide {
-  flex: 0 0 100%;            /* ni crece, ni encoge, mide 100% */
-  max-width: 100%;           /* asegura que no pase ese 100% */
-  box-sizing: border-box;    /* padding y border se incluyen en el 100% */
-}
-
-/* ─────────────────────────────────────────
-   Ajuste de flechas: que recorran de a uno
-   (si tu JS está igual, con flex:0 0 100% bastará) 
-   ───────────────────────────────────────── */
-/* No se requieren cambios en tu JS: 
-   transform: translateX(-current*100%) ahora sólo mostrará un slide a la vez */
-/* ————————————————
-   Quiénes Somos: padding interior ampliado en web
-   ———————————————— */
-@media (min-width: 769px) {
-  /* el contenedor de los slides debe ocultar los vecinos */
-  #quienes-somos .slider {
-    overflow: hidden;
-  }
-
-  /* la pista de slides */
-  #quienes-somos .slides {
-    display: flex;
-    width: 300%;              /* 3 slides × 100% */
-    transition: transform 0.6s ease-in-out;
-  }
-
-  /* cada slide mide 100% sin crecer ni encoger */
-  #quienes-somos .slide {
-    flex: 0 0 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-  }
-
-  /* SOLO ajustamos el padding INTERNO del texto */
-  #quienes-somos .slide-text {
-    padding: 0 3rem;          /* antes 0 1rem, ahora 3rem a cada lado */
-  }
-}
-/* ─────────────────────────────────────────
-   Botón hamburguesa en la izquierda (mobile)
-   ───────────────────────────────────────── */
-@media (max-width: 768px) {
-  header {
-    position: relative;      /* para que el absolute del icono funcione */
-    padding-left: 60px;      /* deja espacio para el icono */
-  }
-
-  .mobile-menu-icon {
-    position: absolute;
-    top: 50%;
-    left: 1rem;
-    transform: translateY(-50%);
-    display: block;          /* ya lo tenías, pero por si acaso */
-    z-index: 1003;
-  }
-
-  /* Asegúrate de que tu SVG de menú use fill="currentColor" o bien lo filtramos: */
-  .mobile-menu-icon img {
-    width: 32px;
-    height: 32px;
-    /* Si tu SVG no es inline, fuerza el filtro para aproximar #301964 */
-    filter: invert(21%) sepia(82%) saturate(1820%) hue-rotate(248deg) brightness(59%) contrast(94%);
-  }
-}
-
-/* ————————————————
-   Quiénes Somos: zonas más estrechas
-   ———————————————— */
-@media (min-width: 769px) {
-  /* Asegura que solo un slide sea visible */
-  #quienes-somos .slider {
-    overflow: hidden;
-  }
-  #quienes-somos .slides {
-    display: flex;
-    width: 300%;                /* 3 slides x 100% */
-    transition: transform 0.6s ease-in-out;
-  }
-  #quienes-somos .slide {
-    flex: 0 0 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;    /* centra imagen+texto */
-    align-items: center;
-  }
-
-  /* Limita la zona de texto y lo centra dentro del slide */
-  #quienes-somos .slide-text {
-    max-width: 600px;           /* ajusta a tu gusto */
-    padding: 0 3rem;            /* espacio lateral interno */
-    box-sizing: border-box;
-  }
 }
