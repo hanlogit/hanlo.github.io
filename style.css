@@ -653,6 +653,20 @@ header {
   flex: 0 0 100%;              /* cada slide ocupa el 100% */
   box-sizing: border-box;      /* padding incluido en ese 100% */
 }
+/* ─────────────────────────────────────────
+   Slider “Quiénes Somos”: ancho correcto
+   ───────────────────────────────────────── */
+#quienes-somos .slides {
+  display: flex;
+  width: 300%;               /* 3 slides × 100% cada uno */
+  transition: transform 0.6s ease-in-out;
+}
+
+#quienes-somos .slide {
+  flex: 0 0 100%;            /* ni crece, ni encoge, mide 100% */
+  max-width: 100%;           /* asegura que no pase ese 100% */
+  box-sizing: border-box;    /* padding y border se incluyen en el 100% */
+}
 
 /* ─────────────────────────────────────────
    Ajuste de flechas: que recorran de a uno
