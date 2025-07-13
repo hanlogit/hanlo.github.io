@@ -200,5 +200,44 @@
     </a>
     <!-- Otros íconos sociales que ya tenías -->
   </div>
+  <!-- === CONTACTO === -->
+  <section id="contacto" class="reveal">
+    <h2>Contacto</h2>
+    <form
+      id="contactForm"
+      action="https://formspree.io/f/YOUR_FORM_ID"
+      method="POST"
+    >
+      <label for="name">Nombre</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Tu nombre"
+        required
+      />
+  
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="_replyto"
+        placeholder="tu@correo.com"
+        required
+      />
+  
+      <label for="message">Mensaje</label>
+      <textarea
+        id="message"
+        name="message"
+        rows="5"
+        placeholder="Escribe tu mensaje..."
+        required
+      ></textarea>
+  
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
 </body>
 </html>
