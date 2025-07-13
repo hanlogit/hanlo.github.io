@@ -26,3 +26,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
   reveals.forEach(el => observer.observe(el));
 });
+// Slider Quiénes Somos
+function initQuienesSomosSlider() {
+  const slides = document.querySelector('.slides');
+  const dots = document.querySelectorAll('.slider-dots .dot');
+  const prevBtn = document.querySelector('.slider-nav.prev');
+  const nextBtn = document.querySelector('.slider-nav.next');
+  let current = 0;
+  const total = dots.length;
+
+  function goTo(index) {
+    current = (index + total) % total;
+    slides.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach(d => d.classList.remove('active'));
+    dots[current].classList.add('active');
+  }
+
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => goTo(Number(dot.dataset.slide)));
+  });
+}
+
+// Iniciar al cargar contenido
+document.addEventListener('DOMContentLoaded', () => {
+  initQuienesSomosSlider();
+});
