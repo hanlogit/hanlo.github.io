@@ -544,3 +544,69 @@ header {
   }
 }
 
+/* ————————————————
+   Secciones Servicios y Proceso
+   ———————————————— */
+#servicios h2,
+#proceso h2 {
+  border-left: 12px solid #301964;  /* borde más grueso */
+  padding-left: 1.5rem;             /* espacio entre borde y texto */
+  font-size: 2.5rem;                /* letras más grandes */
+  font-weight: 800;                 /* más gruesas */
+  margin-bottom: 1.5rem;
+}
+
+/* ————————————————
+   Hero: texto principal
+   ———————————————— */
+#hero .intro-text {
+  display: inline-block;            /* para que el background no ocupe todo el ancho */
+  background-color: #000;           /* fondo negro */
+  color: #fff;                      /* texto blanco */
+  padding: 0.75rem 1.5rem;          /* espacio interior */
+  border-left: 12px solid #301964; /* borde izquierdo destacado */
+  font-size: 4rem;                  /* letra muy grande en desktop */
+  line-height: 1.2;
+}
+
+/* Responsive: hero en móviles */
+@media (max-width: 768px) {
+  #hero .intro-text {
+    font-size: 2.5rem;              /* ajuste de tamaño */
+    border-left-width: 8px;         /* borde proporcional */
+    padding: 0.5rem 1rem;
+  }
+}
+/* ————————————————
+   Ajustes “Quiénes Somos” (solo web)
+   ———————————————— */
+@media (min-width: 769px) {
+  /* Limitar ancho de cada slide y centrarlo */
+  #quienes-somos .slide {
+    max-width: 900px;               /* menos anchura */
+    margin: 0 auto;                 /* centrar */
+    padding: 2rem 3rem;             /* más espacio interior */
+    border: 4px solid #301964;      /* borde más grueso */
+    border-radius: 8px;
+    gap: 2.5rem;                    /* separar imagen/texto */
+  }
+
+  /* Imagen más grande */
+  #quienes-somos .slide-image img {
+    max-width: 280px;
+    width: 100%;
+    height: auto;
+  }
+
+  /* Título un poco más grande */
+  #quienes-somos .slide-text h3 {
+    font-size: 32px;
+    margin-bottom: 1rem;
+  }
+
+  /* Texto más grande y legible */
+  #quienes-somos .slide-text p {
+    font-size: 18px;
+    line-height: 1.75;
+  }
+}
