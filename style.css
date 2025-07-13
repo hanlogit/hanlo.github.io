@@ -532,16 +532,17 @@ header {
   gap: 2rem;
 }
 
-/* Imagen: 50% de ancho en desktop */
+/* Desktop: imagen fija y más pequeña */
 #quienes-somos .slide-image {
-  flex: 0 0 50%;
-  max-width: 50%;
+  flex: 0 0 auto;         /* no ocupa % del contenedor */
+  max-width: 180px;        /* ancho máximo en desktop */
+  margin: 0;               /* sin márgenes extra */
 }
+
 #quienes-somos .slide-image img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 8px;
 }
 
 /* Texto: 50% de ancho + padding interior */
@@ -618,10 +619,8 @@ header {
     padding: 1rem;
   }
   #quienes-somos .slide-image {
-    flex: 0 0 auto;
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: 1rem;
+    max-width: 120px;      /* ancho máximo en móvil */
+    margin: 0 auto 1rem;   /* centrada + separador abajo */
   }
   #quienes-somos .slide-text {
     flex: 0 0 auto;
