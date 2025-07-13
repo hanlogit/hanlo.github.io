@@ -561,7 +561,7 @@ header {
    ———————————————— */
 #hero .intro-text {
   display: inline-block;            /* para que el background no ocupe todo el ancho */
-  background-color: #000;           /* fondo negro */
+  background-color: ##301964;           /* fondo negro */
   color: #fff;                      /* texto blanco */
   padding: 0.75rem 1.5rem;          /* espacio interior */
   border-left: 12px solid #301964; /* borde izquierdo destacado */
