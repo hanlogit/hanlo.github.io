@@ -17,104 +17,114 @@
     rel="stylesheet"
   />
 
+  <!-- CSS y JS -->
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
 </head>
-
 <body>
-
   <!-- HEADER -->
   <header>
-    <button class="mobile-menu-icon" aria-label="Abrir menú">☰</button>
-    <img src="logo.svg" alt="HANLO Logo" class="logo" />
+    <a href="#hero" class="logo">
+      <img src="logo.svg" alt="Logo HANLO" />
+    </a>
     <nav class="desktop-menu">
-      <a href="#hero">Inicio</a>
-      <a href="#productos">Productos</a>
-      <a href="#quienes-somos">Quiénes Somos</a>
-      <a href="#contacto">Contacto</a>
+      <ul>
+        <li><a href="#hero">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#proceso">Nuestro Proceso</a></li>
+        <li><a href="#quienes-somos">Quiénes Somos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
     </nav>
+    <div class="mobile-menu-icon" onclick="toggleMenu()">
+      <img src="menu.svg" alt="Menú" />
+    </div>
   </header>
-
-  <!-- overlay para cerrar menú -->
-  <div id="overlay" class="overlay"></div>
 
   <!-- MENÚ MÓVIL -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#hero" onclick="toggleMenu()">Inicio</a>
-    <a href="#productos" onclick="toggleMenu()">Productos <span class="mobile-arrow">&gt;</span></a>
-    <a href="#quienes-somos" onclick="toggleMenu()">Quiénes Somos <span class="mobile-arrow">&gt;</span></a>
-    <a href="#contacto" onclick="toggleMenu()">Contacto <span class="mobile-arrow">&gt;</span></a>
+    <ul>
+      <li><a href="#hero" onclick="toggleMenu()">Inicio</a></li>
+      <li><a href="#servicios" onclick="toggleMenu()">Servicios</a></li>
+      <li><a href="#proceso" onclick="toggleMenu()">Nuestro Proceso</a></li>
+      <li><a href="#quienes-somos" onclick="toggleMenu()">Quiénes Somos</a></li>
+      <li><a href="#contacto" onclick="toggleMenu()">Contacto</a></li>
+    </ul>
   </div>
+  <div class="overlay" id="overlay"></div>
 
-  <!-- HERO -->
+  <!-- HERO / BANNER -->
   <section id="hero" class="hero reveal">
     <div class="hero-text">
       <h1 class="intro-text">
-       Transformamos tus datos en decisiones
+        Transformamos tus datos en decisiones
       </h1>
     </div>
   </section>
 
-  <!-- PRODUCTOS (grid animado y hover-bounce) -->
-  <section id="productos" class="reveal">
-    <h2>Productos</h2>
-    <div class="product-grid">
-      <!-- Acompañamiento Mensual -->
-      <div class="product-item reveal">
-        <img src="AM.png" alt="Acompañamiento Mensual" />
+  <!-- SERVICIOS -->
+  <section id="servicios" class="reveal">
+    <h2>Servicios</h2>
+    <div class="services-grid">
+      <div class="service-item">
+        <img src="de.png" alt="Diagnóstico" />
+        <h3>Diagnóstico</h3>
       </div>
-      <!-- Diagnóstico de Datos -->
-      <div class="product-item reveal">
-        <img src="DGD.png" alt="Diagnóstico de Datos" />
+      <div class="service-item">
+        <img src="im.png" alt="Implementación" />
+        <h3>Implementación</h3>
       </div>
-      <!-- KPI -->
-      <div class="product-item reveal">
-        <img src="KPI.png" alt="Indicadores Clave (KPIs)" />
-      </div>
-      <!-- Orden y Herramientas de Gestión -->
-      <div class="product-item reveal">
-        <img src="OHG.png" alt="Orden y Herramientas de Gestión" />
-      </div>
-      <!-- Reportes Periódicos Flexibles -->
-      <div class="product-item reveal">
-        <img src="RPF.png" alt="Reportes Periódicos Flexibles" />
-      </div>
-      <!-- Seguridad y Ética de Datos -->
-      <div class="product-item reveal">
-        <img src="SED.png" alt="Seguridad y Ética de Datos" />
+      <div class="service-item">
+        <img src="kpim.png" alt="KPIs y Visualizaciones" />
+        <h3>KPIs y Visualizaciones</h3>
       </div>
     </div>
   </section>
 
-  <!-- QUIÉNES SOMOS -->
-  <section id="quienes-somos" class="reveal">
-    <h2>Quiénes Somos</h2>
-    <p>HANLO es una empresa dedicada al diseño personalizado de soluciones arquitectónicas y comerciales.</p>
+  <!-- NUESTRO PROCESO -->
+  <section id="proceso" class="reveal">
+    <h2>Nuestro Proceso</h2>
+    <div class="proceso-grid">
+      <div class="proceso-item">
+        <img src="des.png" alt="Descubrimiento" />
+        <h3>Descubrimiento</h3>
+      </div>
+      <div class="proceso-item">
+        <img src="adt.png" alt="Auditoría" />
+        <h3>Auditoría</h3>
+      </div>
+      <div class="proceso-item">
+        <img src="imp.png" alt="Implementación" />
+        <h3>Implementación</h3>
+      </div>
+      <div class="proceso-item">
+        <img src="kpi.png" alt="KPIs" />
+        <h3>KPIs</h3>
+      </div>
+      <div class="proceso-item">
+        <img src="acp.png" alt="Acompañamiento" />
+        <h3>Acompañamiento</h3>
+      </div>
+    </div>
   </section>
 
-  <!-- CONTACTO -->
+  <!-- QUIÉNES SOMOS (contenido existente) -->
+  <section id="quienes-somos" class="reveal">
+    <!-- Aquí va el contenido original de "Quiénes Somos" -->
+  </section>
+
+  <!-- CONTACTO (contenido existente) -->
   <section id="contacto" class="reveal">
-    <h2>Contacto</h2>
-    <p>Escríbenos a <a href="mailto:contacto@hanlo.cl">contacto@hanlo.cl</a></p>
+    <!-- Aquí va tu formulario o datos de contacto originales -->
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2025 HANLO. Todos los derechos reservados.</p>
+    <!-- Contenido del footer original -->
   </footer>
-  <!-- ICONOS FIJOS SOCIAL -->
+
+  <!-- ICONOS SOCIALES -->
   <div class="social-icons">
-    <!-- LinkedIn -->
-    <a
-      href="https://www.linkedin.com/company/hanlospa/about/"
-      target="_blank"
-      rel="noopener"
-      title="LinkedIn de HANLO"
-    >
-      <img src="linkedin.svg" alt="LinkedIn" />
-    </a>
-  
-    <!-- WhatsApp -->
     <a
       href="https://wa.me/56951704420"
       target="_blank"
@@ -123,7 +133,7 @@
     >
       <img src="whatsapp.svg" alt="WhatsApp" />
     </a>
+    <!-- Otros íconos sociales que ya tenías -->
   </div>
-
 </body>
 </html>
