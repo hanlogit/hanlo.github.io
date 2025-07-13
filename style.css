@@ -307,4 +307,30 @@ section {
 .slider-dots .dot.active {
   background: #301964;
 }
+/* 1) Box-sizing global para que el padding no desborde */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2) Asegurar que el contenedor no muestre slides vecinos */
+.slider {
+  overflow: hidden;
+}
+
+/* 3) Padding extra en cada slide para agrandar bordes lateral */
+.slide {
+  /* ya tenías flex: 0 0 100%; … */
+  padding: 0 4rem;       /* ajusta los 4rem a lo que prefieras */
+}
+
+/* 4) Fondos independientes por slide */
+.slider .slide:nth-of-type(1) {
+  background-color: #edebe8;   /* Quiénes somos */
+}
+.slider .slide:nth-of-type(2) {
+  background-color: #fefaf5;   /* Misión */
+}
+.slider .slide:nth-of-type(3) {
+  background-color: #fcf4e5;   /* Visión */
+}
 
