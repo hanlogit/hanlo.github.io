@@ -528,7 +528,7 @@ header {
   flex: 0 0 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 2rem;
 }
 
@@ -616,7 +616,7 @@ header {
   #quienes-somos .slide {
     flex-direction: column;
     gap: 1rem;
-    padding: 1rem;
+    padding: 2rem 1rem;   /* 2rem arriba/abajo, 1rem izquierda/derecha */
   }
   #quienes-somos .slide-image {
     max-width: 120px;      /* ancho máximo en móvil */
