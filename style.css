@@ -523,33 +523,41 @@ header {
   transition: transform 0.6s ease-in-out;
 }
 
-/* Cada slide ocupa el 100% y centra su contenido */
+/* ─────────────────────────────────────────
+   Ajustes de ancho, padding y bordes para
+   cada slide “Quiénes Somos”
+   ───────────────────────────────────────── */
 #quienes-somos .slide {
+  /* Bordes de color distintivo */
+  border: 2px solid #301964;
+  border-radius: 8px;
+  /* Ocupa todo el ancho del viewport */
   flex: 0 0 100%;
   display: flex;
   align-items: center;
+  /* Ya no centramos: arrancará en el padding */
   justify-content: flex-start;
   gap: 2rem;
+  /* Reducimos el padding del contenedor */
+  padding: 0;
 }
 
-/* Desktop: imagen fija y más pequeña */
+/* Imagen: ahora 40% para dar más espacio al texto */
 #quienes-somos .slide-image {
-  flex: 0 0 auto;         /* no ocupa % del contenedor */
-  max-width: 180px;        /* ancho máximo en desktop */
-  margin: 0;               /* sin márgenes extra */
+  flex: 0 0 40%;
+  max-width: 40%;
 }
-
 #quienes-somos .slide-image img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-/* Texto: 50% de ancho + padding interior */
+/* Texto: 60%, con más padding a la derecha */
 #quienes-somos .slide-text {
-  flex: 0 0 50%;
-  max-width: 50%;
-  padding: 0 4rem 0 2rem;
+  flex: 0 0 60%;
+  max-width: 60%;
+  padding: 0 4rem 0 2rem;  /* top 0, right 4rem, bottom 0, left 2rem */
   box-sizing: border-box;
 }
 #quienes-somos .slide-text h3 {
@@ -612,22 +620,27 @@ header {
 /* ===========================================================================
    Responsive: versiones para móviles y tabletas (≤768px)
    =========================================================================== */
+
+/* Mobile: apilado, con bordes y padding adaptados */
 @media (max-width: 768px) {
   #quienes-somos .slide {
     flex-direction: column;
-    gap: 1rem;
-    padding: 2rem 1rem;   /* 2rem arriba/abajo, 1rem izquierda/derecha */
+    padding: 1rem;
   }
   #quienes-somos .slide-image {
-    max-width: 120px;      /* ancho máximo en móvil */
-    margin: 0 auto 1rem;   /* centrada + separador abajo */
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
   }
   #quienes-somos .slide-text {
     flex: 0 0 auto;
     width: 100%;
     max-width: 100%;
-    padding: 0 1rem;
+    /* menos padding lateral en móvil */
+    padding: 0 1.5rem;
   }
+}
   #quienes-somos .slide-text h3 {
     font-size: 22px;
     text-align: center;
