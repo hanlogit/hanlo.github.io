@@ -29,15 +29,28 @@ document.addEventListener("DOMContentLoaded", () => {
 // Slider Quiénes Somos
 function initQuienesSomosSlider() {
   const slides = document.querySelector('.slides');
+  const slideEls = document.querySelectorAll('.slides .slide');
   const dots = document.querySelectorAll('.slider-dots .dot');
   const prevBtn = document.querySelector('.slider-nav.prev');
   const nextBtn = document.querySelector('.slider-nav.next');
   let current = 0;
-  const total = dots.length;
+  const total = slideEls.length;
 
   function goTo(index) {
     current = (index + total) % total;
-    slides.style.transform = `translateX(-${current * 100}%)`;
+
+    // ancho real de un slide (incluye border, padding)
+    const slideRect = slideEls[0].getBoundingClientRect();
+    const slideWidth = slideRect.width;
+
+    // obtén el margin-right aplicado en CSS
+    const style = getComputedStyle(slideEls[0]);
+    const gap = parseFloat(style.marginRight);
+
+    // mueve la pista por píxeles
+    slides.style.transform = `translateX(-${current * (slideWidth + gap)}px)`;
+
+    // actualiza puntos activos
     dots.forEach(d => d.classList.remove('active'));
     dots[current].classList.add('active');
   }
@@ -49,7 +62,7 @@ function initQuienesSomosSlider() {
   });
 }
 
-// Iniciar al cargar contenido
+// iniciar al cargar
 document.addEventListener('DOMContentLoaded', () => {
   initQuienesSomosSlider();
 });
