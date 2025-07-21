@@ -62,41 +62,51 @@ function initQuienesSomosSlider() {
   });
 }
 
-// iniciar al cargar
-document.addEventListener('DOMContentLoaded', () => {
-  initQuienesSomosSlider();
-});
-// == Flip‑card setup para Servicios y Proceso ==
-document.querySelectorAll('.service-item, .proceso-item').forEach(item => {
-  const img = item.querySelector('img');
-  if (!img) return;
+/**
+ * Inicializa el efecto flip‑card en los elementos de Servicios y Nuestro Proceso.
+ */
+function initFlipCards() {
+  // Selecciona cada item de servicio y de proceso
+  document.querySelectorAll('.service-item, .proceso-item').forEach(item => {
+    const img = item.querySelector('img');
+    if (!img) return;  // si no tiene imagen, ignorar
 
-  // 1. Crear estructura flip-card
-  const flipCard = document.createElement('div');
-  flipCard.classList.add('flip-card');
+    // 1. Crear estructura HTML de la carta
+    const flipCard = document.createElement('div');
+    flipCard.classList.add('flip-card');
 
-  const inner = document.createElement('div');
-  inner.classList.add('flip-card-inner');
+    const inner = document.createElement('div');
+    inner.classList.add('flip-card-inner');
+    inner.classList.remove('flipped'); // asegurar estado inicial
 
-  const front = document.createElement('div');
-  front.classList.add('flip-card-front');
-  front.appendChild(img.cloneNode(true));  // clonar la imagen
+    const front = document.createElement('div');
+    front.classList.add('flip-card-front');
+    front.appendChild(img.cloneNode(true)); // clonar la imagen como front
 
-  const back = document.createElement('div');
-  back.classList.add('flip-card-back');
-  const p = document.createElement('p');
-  p.textContent = 'Texto de ejemplo';      // placeholder
-  back.appendChild(p);
+    const back = document.createElement('div');
+    back.classList.add('flip-card-back');
+    const p = document.createElement('p');
+    p.textContent = 'Texto de ejemplo';     // placeholder, reemplázalo luego
+    back.appendChild(p);
 
-  inner.appendChild(front);
-  inner.appendChild(back);
-  flipCard.appendChild(inner);
+    // Montar estructura
+    inner.appendChild(front);
+    inner.appendChild(back);
+    flipCard.appendChild(inner);
 
-  // 2. Reemplazar contenido original del item
-  item.innerHTML = '';
-  item.appendChild(flipCard);
+    // 2. Reemplazar el contenido original por la flip‑card
+    item.innerHTML = '';
+    item.appendChild(flipCard);
 
-  // 3. Eventos hover para voltear
-  flipCard.addEventListener('mouseenter', () => inner.classList.add('flipped'));
-  flipCard.addEventListener('mouseleave', () => inner.classList.remove('flipped'));
-});
+    // 3. Eventos para voltear la carta
+    // Hover en desktop
+    flipCard.addEventListener('mouseenter', () => inner.classList.add('flipped'));
+    flipCard.addEventListener('mouseleave', () => inner.classList.remove('flipped'));
+    // Click/touch en móvil
+    flipCard.addEventListener('click', () => inner.classList.toggle('flipped'));
+  });
+}
+
+// Ejecutar la inicialización tras cargar el DOM
+document.addEventListener('DOMContentLoaded', initFlipCards);
+
