@@ -106,6 +106,84 @@ function initFlipCards() {
     flipCard.addEventListener('click', () => inner.classList.toggle('flipped'));
   });
 }
+/**
+ * Inicializa el efecto flip‑card y asigna descripciones
+ * para Servicios y Nuestro Proceso.
+ */
+function initFlipCards() {
+  // Mapeo de títulos a descripciones
+  const descriptions = {
+    // — Servicios —
+    'Limpieza de datos':
+      'Revisamos, depuramos y organizamos tus hojas de cálculo o archivos para que trabajes con información clara y confiable.',
+    'Dashboards':
+      'Diseñamos paneles visuales interactivos con indicadores clave (KPIs) para que tomes decisiones basadas en datos en tiempo real.',
+    'Automatización':
+      'Implementamos soluciones automatizadas usando herramientas como Excel, Google Sheets, Power BI y Python, reduciendo tareas repetitivas y errores manuales.',
+    'Consultoría':
+      'Te asesoramos en la interpretación de tus datos y te orientamos sobre cómo usarlos estratégicamente para mejorar tu negocio.',
+    'Reportes periódicos':
+      'Generamos informes mensuales con los principales resultados y tendencias para que tengas siempre el control de tu operación.',
+
+    // — Nuestro Proceso —
+    'Descubrimiento':
+      'Entendemos cómo funciona el negocio: procesos, personas, herramientas actuales. Escuchamos sus dolores específicos y definimos objetivos claros. Entrega: Ficha de cliente con diagnóstico inicial y enfoque de trabajo.',
+    'Auditoría':
+      'Revisamos cómo se almacenan, recopilan y usan los datos clave (ventas, stock, clientes, etc.). Identificamos desorden, duplicidad, brechas o falta de conexión. Entrega: Mapa de información actual + recomendaciones de mejora. 🛠️',
+    'Implementación':
+      'Creamos dashboards, reportes o estructuras de control personalizadas. Trabajamos con Excel, Google Sheets o Power BI (según el cliente). Entrega: Herramientas listas para usar + capacitación. 🚦',
+    'KPIs':
+      'Acordamos los indicadores clave de gestión del negocio (margen, stock crítico, pagos, etc.). Generamos paneles visuales simples y accionables. Entrega: Panel de indicadores actualizado automáticamente.',
+    'Acompañamiento':
+      'Reuniones periódicas para revisar datos, hacer ajustes y resolver dudas. Soporte continuo para mantener el sistema alineado a la evolución del negocio. Entrega: Informe de mejoras + soporte constante.'
+  };
+
+  // Selecciona cada elemento de servicio o proceso
+  document.querySelectorAll('.service-item, .proceso-item').forEach(item => {
+    // Obtiene el título (h3) para buscar la descripción
+    const titleEl = item.querySelector('h3');
+    const title = titleEl ? titleEl.textContent.trim() : '';
+    const desc = descriptions[title] || '';
+
+    // Crea la estructura flip‑card
+    const flipCard = document.createElement('div');
+    flipCard.classList.add('flip-card');
+
+    const inner = document.createElement('div');
+    inner.classList.add('flip-card-inner');
+    inner.classList.remove('flipped'); // estado inicial
+
+    // Cara frontal (la imagen)
+    const front = document.createElement('div');
+    front.classList.add('flip-card-front');
+    const img = item.querySelector('img');
+    if (img) front.appendChild(img.cloneNode(true));
+
+    // Cara trasera (la descripción)
+    const back = document.createElement('div');
+    back.classList.add('flip-card-back');
+    const p = document.createElement('p');
+    p.textContent = desc;
+    back.appendChild(p);
+
+    // Monta la carta
+    inner.appendChild(front);
+    inner.appendChild(back);
+    flipCard.appendChild(inner);
+
+    // Reemplaza el contenido original
+    item.innerHTML = '';
+    item.appendChild(flipCard);
+
+    // Eventos para voltear
+    flipCard.addEventListener('mouseenter', () => inner.classList.add('flipped'));
+    flipCard.addEventListener('mouseleave', () => inner.classList.remove('flipped'));
+    flipCard.addEventListener('click', () => inner.classList.toggle('flipped'));
+  });
+}
+
+// Ejecuta al cargar el DOM
+document.addEventListener('DOMContentLoaded', initFlipCards);
 
 // Ejecutar la inicialización tras cargar el DOM
 document.addEventListener('DOMContentLoaded', initFlipCards);
