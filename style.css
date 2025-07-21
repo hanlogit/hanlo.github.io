@@ -676,16 +676,20 @@ header {
 /* ——— Flip‑card base y espaciados definitivos ——— */
 .flip-card {
   perspective: 1000px;
-  margin: 1rem auto 3rem; /* incluido margin-bottom */
-  width: 200px;           /* tamaño en escritorio */
+  margin: 1rem auto 3rem;
+  width: 200px;
+  aspect-ratio: 1 / 1;    /* obliga a que height = width */
   box-sizing: border-box;
 }
+
 @media (max-width: 768px) {
   .flip-card {
-    width: 120px;         /* tamaño en móvil */
+    width: 120px;
+    aspect-ratio: 1 / 1;  /* mantiene el cuadrado en móvil */
     margin-bottom: 2.5rem;
   }
 }
+
 
 .flip-card-inner {
   position: relative;
@@ -713,8 +717,9 @@ header {
   padding: 0.5rem;
 }
 .flip-card-front img {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;    /* rellena el contenedor sin deformarse */
 }
 .flip-card-back {
   transform: rotateY(180deg);
