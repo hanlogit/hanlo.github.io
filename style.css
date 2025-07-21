@@ -162,7 +162,7 @@ section {
   padding: 2rem 1rem;
 }
 .service-item img {
-  width: 100%;
+  width: 150px;
   height: auto;
   display: block;
   border-radius: 8px;
@@ -184,7 +184,7 @@ section {
   padding: 2rem 1rem;
 }
 .proceso-item img {
-  width: 80px;
+  width: 150px;
   height: auto;
   display: block;
   margin: 0 auto;
@@ -194,6 +194,14 @@ section {
   margin-top: 0.5rem;
   font-size: 1rem;
   color: #301964;
+}
+
+/* Versión móvil */
+@media (max-width: 768px) {
+  .service-item img,
+  .proceso-item img {
+    width: 80px;
+  }
 }
 
 /* Iconos sociales fijos en pantalla */
