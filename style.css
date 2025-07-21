@@ -152,15 +152,7 @@ section {
   color: #fff;
 }
 
-/* Ajustes de sección Servicios */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
+
 .service-item img {
   width: 500px;
   height: auto;
@@ -174,15 +166,7 @@ section {
   color: #301964;
 }
 
-/* Ajustes de sección Nuestro Proceso */
-.proceso-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
-  gap: 1.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
+
 .proceso-item img {
   width: 500px;
   height: auto;
@@ -196,13 +180,6 @@ section {
   color: #301964;
 }
 
-/* Versión móvil */
-@media (max-width: 768px) {
-  .service-item img,
-  .proceso-item img {
-    width: 300px;
-  }
-}
 
 /* Iconos sociales fijos en pantalla */
 .social-icons {
@@ -774,4 +751,24 @@ header {
 #servicios,
 #proceso {
   padding: 1rem 0 2rem;
+}
+/* ─── Grid definitivo para Servicios y Proceso ─── */
+.services-grid,
+.proceso-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  column-gap: 4rem;   /* separación horizontal */
+  row-gap: 6rem;      /* separación vertical */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (max-width: 768px) {
+  .services-grid,
+  .proceso-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    column-gap: 2rem;
+    row-gap: 4rem;
+  }
 }
