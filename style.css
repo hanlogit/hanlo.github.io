@@ -680,14 +680,14 @@ header {
 .flip-card {
   perspective: 1000px;
   margin: 1rem auto 3rem;
-  width: 200px;
+  width: 300px;
   aspect-ratio: 1 / 1;    /* obliga a que height = width */
   box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
   .flip-card {
-    width: 120px;
+    width: 200px;
     aspect-ratio: 1 / 1;  /* mantiene el cuadrado en móvil */
     margin-bottom: 2.5rem;
   }
