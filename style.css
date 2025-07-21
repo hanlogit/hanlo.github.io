@@ -696,17 +696,17 @@ header {
     text-align: center;
   }
 }
-/* ——— Flip‑card base ——— */
+/* ——— Flip‑card base y espaciados definitivos ——— */
 .flip-card {
   perspective: 1000px;
-  margin: 1rem auto;
-  width: 150px;          /* tamaño por defecto */
-  height: auto;
+  margin: 1rem auto 3rem; /* incluido margin-bottom */
+  width: 200px;           /* tamaño en escritorio */
   box-sizing: border-box;
 }
 @media (max-width: 768px) {
   .flip-card {
-    width: 80px;         /* móvil */
+    width: 120px;         /* tamaño en móvil */
+    margin-bottom: 2.5rem;
   }
 }
 
@@ -717,12 +717,10 @@ header {
   transform-style: preserve-3d;
   transition: transform 0.6s;
 }
-
 .flip-card-inner.flipped {
   transform: rotateY(180deg);
 }
 
-/* — Front & back — */
 .flip-card-front,
 .flip-card-back {
   position: absolute;
@@ -737,16 +735,13 @@ header {
   box-sizing: border-box;
   padding: 0.5rem;
 }
-
 .flip-card-front img {
   max-width: 100%;
   height: auto;
 }
-
 .flip-card-back {
   transform: rotateY(180deg);
 }
-
 .flip-card-back p {
   margin: 0;
   color: #301964;
@@ -755,92 +750,28 @@ header {
   font-size: 0.9rem;
 }
 
-/* ————————— Espaciado Títulos vs Grid ————————— */
-
-/* 1. Más espacio bajo el título */
-#servicios h2,
-#proceso h2 {
-  margin-bottom: 4rem;     /* antes 1.5rem :contentReference[oaicite:0]{index=0} */
-}
-
-/* 2. Separar el grid del título y aumentar gap entre tarjetas */
-#servicios .services-grid,
-#proceso .proceso-grid {
-  margin-top: 4rem;        /* empuja el grid hacia abajo */
-  gap: 4rem;             /* antes 2rem en servicios :contentReference[oaicite:1]{index=1} y 1.5rem en proceso :contentReference[oaicite:2]{index=2} */
-}
-
-/* 3. Un poquito de margen interior extra en cada sección */
-#servicios,
-#proceso {
-  padding-top: 1rem;       /* evita que el grid choque con el borde superior del section */
-  padding-bottom: 2rem;    /* separa del siguiente bloque */
-}
-
-@media (max-width: 768px) {
-  /* 1. Más separación bajo los títulos */
-  #servicios h2,
-  #proceso h2 {
-    margin-bottom: 2rem;
-  }
-
-  /* 2. Empujar los grids hacia abajo y aumentar gap entre tarjetas */
-  #servicios .services-grid,
-  #proceso .proceso-grid {
-    margin-top: 2rem;
-    gap: 2.5rem;    /* mayor separación horizontal y vertical */
-  }
-
-  /* 3. Extra padding en cada sección para que no queden tan apretadas */
-  #servicios,
-  #proceso {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-
-  /* 4. Aumentar el espacio exterior de cada flip-card */
-  .flip-card {
-    margin: 1.5rem auto;
-  }
-}
-/* ─── Espaciado extra para flip-cards ─── */
-
-/* 1. Asegurar margen bajo los títulos para que no solapen el grid */
-#servicios h2,
-#proceso h2 {
-  margin-bottom: 4rem;    /* antes 1.5rem :contentReference[oaicite:0]{index=0} */
-}
-
-/* 2. Separar un poco el grid del título */
-.services-grid,
-.proceso-grid {
-  margin-top: 6rem;       /* empuja todo el conjunto hacia abajo */
-}
-
-/* 3. Aumentar el gap vertical entre filas */
+/* ——— Espaciado vertical entre filas de tarjetas ——— */
 .services-grid {
-  row-gap: 4rem;          /* antes 2rem :contentReference[oaicite:1]{index=1} */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 1rem 4rem;      /* 1rem entre columnas, 4rem entre filas */
 }
 .proceso-grid {
-  row-gap: 4rem;          /* antes 1.5rem :contentReference[oaicite:2]{index=2} */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 1rem 4rem;
 }
 
-/* 4. Añadir margen inferior a cada carta */
-.flip-card {
+/* ——— Separación títulos vs grids ——— */
+#servicios h2,
+#proceso h2 {
   margin-bottom: 4rem;
 }
-
-/* ─── Ajustes específicos para móvil (≤768px) ─── */
-@media (max-width: 768px) {
-  /* Más espacio entre items en móvil */
-  .services-grid,
-  .proceso-grid {
-    gap: 2.5rem;            /* gap afecta row-gap y column-gap */
-    margin-top: 2rem;
-  }
-
-  /* Margen extra bajo cada carta para que no queden pegadas */
-  .flip-card {
-    margin-bottom: 2.5rem;
-  }
+#servicios .services-grid,
+#proceso .proceso-grid {
+  margin-top: 2rem;
+}
+#servicios,
+#proceso {
+  padding: 1rem 0 2rem;
 }
