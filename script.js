@@ -1,6 +1,16 @@
 // script.js
+
+// ——— 1. Al cargar el DOM inicializamos todo ———
 document.addEventListener("DOMContentLoaded", () => {
-  // ——— Menú móvil ———
+  initMobileMenu();
+  initRevealOnScroll();
+  initQuienesSomosSlider();
+  initFlipCards();
+});
+
+
+// ——— 2. Menú móvil ———
+function initMobileMenu() {
   const menuIcon   = document.querySelector(".mobile-menu-icon");
   const mobileMenu = document.getElementById("mobileMenu");
   const overlay    = document.getElementById("overlay");
@@ -12,8 +22,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   menuIcon.addEventListener("click", toggleMenu);
   overlay.addEventListener("click", toggleMenu);
+}
 
-  // ——— Reveal on scroll ———
+
+// ——— 3. Reveal on scroll ———
+function initRevealOnScroll() {
   const reveals = document.querySelectorAll(".reveal");
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
@@ -25,93 +38,36 @@ document.addEventListener("DOMContentLoaded", () => {
   }, { threshold: 0.2 });
 
   reveals.forEach(el => observer.observe(el));
-});
-// Slider Quiénes Somos
+}
+
+
+// ——— 4. Slider “Quiénes Somos” ———
 function initQuienesSomosSlider() {
-  const slides = document.querySelector('.slides');
+  const slides   = document.querySelector('.slides');
   const slideEls = document.querySelectorAll('.slides .slide');
-  const dots = document.querySelectorAll('.slider-dots .dot');
-  const prevBtn = document.querySelector('.slider-nav.prev');
-  const nextBtn = document.querySelector('.slider-nav.next');
+  const dots     = document.querySelectorAll('.slider-dots .dot');
+  const prevBtn  = document.querySelector('.slider-nav.prev');
+  const nextBtn  = document.querySelector('.slider-nav.next');
   let current = 0;
   const total = slideEls.length;
 
   function goTo(index) {
     current = (index + total) % total;
-
-    // ancho real de un slide (incluye border, padding)
-    const slideRect = slideEls[0].getBoundingClientRect();
-    const slideWidth = slideRect.width;
-
-    // obtén el margin-right aplicado en CSS
-    const style = getComputedStyle(slideEls[0]);
-    const gap = parseFloat(style.marginRight);
-
-    // mueve la pista por píxeles
-    slides.style.transform = `translateX(-${current * (slideWidth + gap)}px)`;
-
-    // actualiza puntos activos
+    const { width: w } = slideEls[0].getBoundingClientRect();
+    const gap = parseFloat(getComputedStyle(slideEls[0]).marginRight);
+    slides.style.transform = `translateX(-${current * (w + gap)}px)`;
     dots.forEach(d => d.classList.remove('active'));
     dots[current].classList.add('active');
   }
 
   prevBtn.addEventListener('click', () => goTo(current - 1));
   nextBtn.addEventListener('click', () => goTo(current + 1));
-  dots.forEach(dot => {
-    dot.addEventListener('click', () => goTo(Number(dot.dataset.slide)));
-  });
+  dots.forEach(dot => dot.addEventListener('click', () => goTo(+dot.dataset.slide)));
 }
 
-/**
- * Inicializa el efecto flip‑card en los elementos de Servicios y Nuestro Proceso.
- */
+
+// ——— 5. Flip‑cards con descripciones ———
 function initFlipCards() {
-  // Selecciona cada item de servicio y de proceso
-  document.querySelectorAll('.service-item, .proceso-item').forEach(item => {
-    const img = item.querySelector('img');
-    if (!img) return;  // si no tiene imagen, ignorar
-
-    // 1. Crear estructura HTML de la carta
-    const flipCard = document.createElement('div');
-    flipCard.classList.add('flip-card');
-
-    const inner = document.createElement('div');
-    inner.classList.add('flip-card-inner');
-    inner.classList.remove('flipped'); // asegurar estado inicial
-
-    const front = document.createElement('div');
-    front.classList.add('flip-card-front');
-    front.appendChild(img.cloneNode(true)); // clonar la imagen como front
-
-    const back = document.createElement('div');
-    back.classList.add('flip-card-back');
-    const p = document.createElement('p');
-    p.textContent = 'Texto de ejemplo';     // placeholder, reemplázalo luego
-    back.appendChild(p);
-
-    // Montar estructura
-    inner.appendChild(front);
-    inner.appendChild(back);
-    flipCard.appendChild(inner);
-
-    // 2. Reemplazar el contenido original por la flip‑card
-    item.innerHTML = '';
-    item.appendChild(flipCard);
-
-    // 3. Eventos para voltear la carta
-    // Hover en desktop
-    flipCard.addEventListener('mouseenter', () => inner.classList.add('flipped'));
-    flipCard.addEventListener('mouseleave', () => inner.classList.remove('flipped'));
-    // Click/touch en móvil
-    flipCard.addEventListener('click', () => inner.classList.toggle('flipped'));
-  });
-}
-/**
- * Inicializa el efecto flip‑card y asigna descripciones
- * para Servicios y Nuestro Proceso.
- */
-function initFlipCards() {
-  // Mapeo de títulos a descripciones
   const descriptions = {
     // — Servicios —
     'Limpieza de datos':
@@ -124,7 +80,6 @@ function initFlipCards() {
       'Te asesoramos en la interpretación de tus datos y te orientamos sobre cómo usarlos estratégicamente para mejorar tu negocio.',
     'Reportes periódicos':
       'Generamos informes mensuales con los principales resultados y tendencias para que tengas siempre el control de tu operación.',
-
     // — Nuestro Proceso —
     'Descubrimiento':
       'Entendemos cómo funciona el negocio: procesos, personas, herramientas actuales. Escuchamos sus dolores específicos y definimos objetivos claros. Entrega: Ficha de cliente con diagnóstico inicial y enfoque de trabajo.',
@@ -138,53 +93,40 @@ function initFlipCards() {
       'Reuniones periódicas para revisar datos, hacer ajustes y resolver dudas. Soporte continuo para mantener el sistema alineado a la evolución del negocio. Entrega: Informe de mejoras + soporte constante.'
   };
 
-  // Selecciona cada elemento de servicio o proceso
   document.querySelectorAll('.service-item, .proceso-item').forEach(item => {
-    // Obtiene el título (h3) para buscar la descripción
+    // extraer título ANTES de clonar
     const titleEl = item.querySelector('h3');
-    const title = titleEl ? titleEl.textContent.trim() : '';
-    const desc = descriptions[title] || '';
+    const title   = titleEl ? titleEl.textContent.trim() : '';
+    const desc    = descriptions[title] || '';
 
-    // Crea la estructura flip‑card
+    // crear flip‑card
     const flipCard = document.createElement('div');
     flipCard.classList.add('flip-card');
 
     const inner = document.createElement('div');
     inner.classList.add('flip-card-inner');
-    inner.classList.remove('flipped'); // estado inicial
 
-    // Cara frontal (la imagen)
     const front = document.createElement('div');
     front.classList.add('flip-card-front');
     const img = item.querySelector('img');
     if (img) front.appendChild(img.cloneNode(true));
 
-    // Cara trasera (la descripción)
     const back = document.createElement('div');
     back.classList.add('flip-card-back');
     const p = document.createElement('p');
     p.textContent = desc;
     back.appendChild(p);
 
-    // Monta la carta
-    inner.appendChild(front);
-    inner.appendChild(back);
+    inner.append(front, back);
     flipCard.appendChild(inner);
 
-    // Reemplaza el contenido original
+    // reemplazar contenido original
     item.innerHTML = '';
     item.appendChild(flipCard);
 
-    // Eventos para voltear
+    // eventos flip
     flipCard.addEventListener('mouseenter', () => inner.classList.add('flipped'));
     flipCard.addEventListener('mouseleave', () => inner.classList.remove('flipped'));
     flipCard.addEventListener('click', () => inner.classList.toggle('flipped'));
   });
 }
-
-// Ejecuta al cargar el DOM
-document.addEventListener('DOMContentLoaded', initFlipCards);
-
-// Ejecutar la inicialización tras cargar el DOM
-document.addEventListener('DOMContentLoaded', initFlipCards);
-
