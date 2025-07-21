@@ -803,3 +803,44 @@ header {
     margin: 1.5rem auto;
   }
 }
+/* ─── Espaciado extra para flip-cards ─── */
+
+/* 1. Asegurar margen bajo los títulos para que no solapen el grid */
+#servicios h2,
+#proceso h2 {
+  margin-bottom: 2.5rem;    /* antes 1.5rem :contentReference[oaicite:0]{index=0} */
+}
+
+/* 2. Separar un poco el grid del título */
+.services-grid,
+.proceso-grid {
+  margin-top: 1.5rem;       /* empuja todo el conjunto hacia abajo */
+}
+
+/* 3. Aumentar el gap vertical entre filas */
+.services-grid {
+  row-gap: 2.5rem;          /* antes 2rem :contentReference[oaicite:1]{index=1} */
+}
+.proceso-grid {
+  row-gap: 2.5rem;          /* antes 1.5rem :contentReference[oaicite:2]{index=2} */
+}
+
+/* 4. Añadir margen inferior a cada carta */
+.flip-card {
+  margin-bottom: 2rem;
+}
+
+/* ─── Ajustes específicos para móvil (≤768px) ─── */
+@media (max-width: 768px) {
+  /* Más espacio entre items en móvil */
+  .services-grid,
+  .proceso-grid {
+    gap: 2.5rem;            /* gap afecta row-gap y column-gap */
+    margin-top: 2rem;
+  }
+
+  /* Margen extra bajo cada carta para que no queden pegadas */
+  .flip-card {
+    margin-bottom: 2.5rem;
+  }
+}
