@@ -162,7 +162,7 @@ section {
   padding: 2rem 1rem;
 }
 .service-item img {
-  width: 300px;
+  width: 500px;
   height: auto;
   display: block;
   border-radius: 8px;
@@ -184,7 +184,7 @@ section {
   padding: 2rem 1rem;
 }
 .proceso-item img {
-  width: 300px;
+  width: 500px;
   height: auto;
   display: block;
   margin: 0 auto;
@@ -200,7 +200,7 @@ section {
 @media (max-width: 768px) {
   .service-item img,
   .proceso-item img {
-    width: 150px;
+    width: 300px;
   }
 }
 
@@ -808,26 +808,26 @@ header {
 /* 1. Asegurar margen bajo los títulos para que no solapen el grid */
 #servicios h2,
 #proceso h2 {
-  margin-bottom: 2.5rem;    /* antes 1.5rem :contentReference[oaicite:0]{index=0} */
+  margin-bottom: 4rem;    /* antes 1.5rem :contentReference[oaicite:0]{index=0} */
 }
 
 /* 2. Separar un poco el grid del título */
 .services-grid,
 .proceso-grid {
-  margin-top: 1.5rem;       /* empuja todo el conjunto hacia abajo */
+  margin-top: 3rem;       /* empuja todo el conjunto hacia abajo */
 }
 
 /* 3. Aumentar el gap vertical entre filas */
 .services-grid {
-  row-gap: 2.5rem;          /* antes 2rem :contentReference[oaicite:1]{index=1} */
+  row-gap: 4rem;          /* antes 2rem :contentReference[oaicite:1]{index=1} */
 }
 .proceso-grid {
-  row-gap: 2.5rem;          /* antes 1.5rem :contentReference[oaicite:2]{index=2} */
+  row-gap: 4rem;          /* antes 1.5rem :contentReference[oaicite:2]{index=2} */
 }
 
 /* 4. Añadir margen inferior a cada carta */
 .flip-card {
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 }
 
 /* ─── Ajustes específicos para móvil (≤768px) ─── */
