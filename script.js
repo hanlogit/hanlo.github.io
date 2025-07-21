@@ -66,7 +66,7 @@ function initQuienesSomosSlider() {
 }
 
 
-// ——— 5. Flip‑cards con descripciones ———
+// ——— 5. Flip‑cards con descripciones (usa img.alt para el título) ———
 function initFlipCards() {
   const descriptions = {
     // — Servicios —
@@ -80,6 +80,7 @@ function initFlipCards() {
       'Te asesoramos en la interpretación de tus datos y te orientamos sobre cómo usarlos estratégicamente para mejorar tu negocio.',
     'Reportes periódicos':
       'Generamos informes mensuales con los principales resultados y tendencias para que tengas siempre el control de tu operación.',
+
     // — Nuestro Proceso —
     'Descubrimiento':
       'Entendemos cómo funciona el negocio: procesos, personas, herramientas actuales. Escuchamos sus dolores específicos y definimos objetivos claros. Entrega: Ficha de cliente con diagnóstico inicial y enfoque de trabajo.',
@@ -94,12 +95,13 @@ function initFlipCards() {
   };
 
   document.querySelectorAll('.service-item, .proceso-item').forEach(item => {
-    // extraer título ANTES de clonar
-    const titleEl = item.querySelector('h3');
-    const title   = titleEl ? titleEl.textContent.trim() : '';
-    const desc    = descriptions[title] || '';
+    // 1) Extrae la imagen y su alt (que usamos como clave)
+    const img = item.querySelector('img');
+    if (!img) return;
+    const title = img.alt.trim();
+    const desc  = descriptions[title] || '';
 
-    // crear flip‑card
+    // 2) Crea la flip‑card
     const flipCard = document.createElement('div');
     flipCard.classList.add('flip-card');
 
@@ -108,8 +110,7 @@ function initFlipCards() {
 
     const front = document.createElement('div');
     front.classList.add('flip-card-front');
-    const img = item.querySelector('img');
-    if (img) front.appendChild(img.cloneNode(true));
+    front.appendChild(img.cloneNode(true));
 
     const back = document.createElement('div');
     back.classList.add('flip-card-back');
@@ -120,11 +121,11 @@ function initFlipCards() {
     inner.append(front, back);
     flipCard.appendChild(inner);
 
-    // reemplazar contenido original
+    // 3) Reemplaza el contenido original
     item.innerHTML = '';
     item.appendChild(flipCard);
 
-    // eventos flip
+    // 4) Eventos para voltear
     flipCard.addEventListener('mouseenter', () => inner.classList.add('flipped'));
     flipCard.addEventListener('mouseleave', () => inner.classList.remove('flipped'));
     flipCard.addEventListener('click', () => inner.classList.toggle('flipped'));
