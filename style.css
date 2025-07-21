@@ -760,14 +760,14 @@ header {
 /* 1. Más espacio bajo el título */
 #servicios h2,
 #proceso h2 {
-  margin-bottom: 2rem;     /* antes 1.5rem :contentReference[oaicite:0]{index=0} */
+  margin-bottom: 4rem;     /* antes 1.5rem :contentReference[oaicite:0]{index=0} */
 }
 
 /* 2. Separar el grid del título y aumentar gap entre tarjetas */
 #servicios .services-grid,
 #proceso .proceso-grid {
-  margin-top: 2rem;        /* empuja el grid hacia abajo */
-  gap: 2.5rem;             /* antes 2rem en servicios :contentReference[oaicite:1]{index=1} y 1.5rem en proceso :contentReference[oaicite:2]{index=2} */
+  margin-top: 4rem;        /* empuja el grid hacia abajo */
+  gap: 4rem;             /* antes 2rem en servicios :contentReference[oaicite:1]{index=1} y 1.5rem en proceso :contentReference[oaicite:2]{index=2} */
 }
 
 /* 3. Un poquito de margen interior extra en cada sección */
@@ -814,7 +814,7 @@ header {
 /* 2. Separar un poco el grid del título */
 .services-grid,
 .proceso-grid {
-  margin-top: 3rem;       /* empuja todo el conjunto hacia abajo */
+  margin-top: 6rem;       /* empuja todo el conjunto hacia abajo */
 }
 
 /* 3. Aumentar el gap vertical entre filas */
