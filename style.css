@@ -645,6 +645,8 @@ header {
    =========================================================================== */
 
 /* Mobile: apilado, con bordes y padding adaptados */
+
+/* Responsive: versiones para móviles y tabletas (≤768px) */
 @media (max-width: 768px) {
   #quienes-somos .slide {
     flex-direction: column;
@@ -660,10 +662,10 @@ header {
     flex: 0 0 auto;
     width: 100%;
     max-width: 100%;
-    /* menos padding lateral en móvil */
     padding: 0 1.5rem;
   }
-}
+
+  /* Ahora sí dentro del mismo @media */
   #quienes-somos .slide-text h3 {
     font-size: 22px;
     text-align: center;
@@ -672,7 +674,8 @@ header {
     font-size: 15px;
     text-align: center;
   }
-}
+}  /* ← cierre correcto del @media */
+
 /* ——— Flip‑card base y espaciados definitivos ——— */
 .flip-card {
   perspective: 1000px;
