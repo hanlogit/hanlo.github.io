@@ -200,7 +200,7 @@ section {
 @media (max-width: 768px) {
   .service-item img,
   .proceso-item img {
-    width: 80px;
+    width: 150px;
   }
 }
 
@@ -755,3 +755,51 @@ header {
   font-size: 0.9rem;
 }
 
+/* ————————— Espaciado Títulos vs Grid ————————— */
+
+/* 1. Más espacio bajo el título */
+#servicios h2,
+#proceso h2 {
+  margin-bottom: 2rem;     /* antes 1.5rem :contentReference[oaicite:0]{index=0} */
+}
+
+/* 2. Separar el grid del título y aumentar gap entre tarjetas */
+#servicios .services-grid,
+#proceso .proceso-grid {
+  margin-top: 2rem;        /* empuja el grid hacia abajo */
+  gap: 2.5rem;             /* antes 2rem en servicios :contentReference[oaicite:1]{index=1} y 1.5rem en proceso :contentReference[oaicite:2]{index=2} */
+}
+
+/* 3. Un poquito de margen interior extra en cada sección */
+#servicios,
+#proceso {
+  padding-top: 1rem;       /* evita que el grid choque con el borde superior del section */
+  padding-bottom: 2rem;    /* separa del siguiente bloque */
+}
+
+@media (max-width: 768px) {
+  /* 1. Más separación bajo los títulos */
+  #servicios h2,
+  #proceso h2 {
+    margin-bottom: 2rem;
+  }
+
+  /* 2. Empujar los grids hacia abajo y aumentar gap entre tarjetas */
+  #servicios .services-grid,
+  #proceso .proceso-grid {
+    margin-top: 2rem;
+    gap: 2.5rem;    /* mayor separación horizontal y vertical */
+  }
+
+  /* 3. Extra padding en cada sección para que no queden tan apretadas */
+  #servicios,
+  #proceso {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  /* 4. Aumentar el espacio exterior de cada flip-card */
+  .flip-card {
+    margin: 1.5rem auto;
+  }
+}
