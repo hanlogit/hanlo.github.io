@@ -585,13 +585,13 @@ header {
   box-sizing: border-box;
 }
 #quienes-somos .slide-text h3 {
-  font-size: 26px;
+  font-size: 30px;
   font-weight: 700;
   color: #301964;
   margin-bottom: 1rem;
 }
 #quienes-somos .slide-text p {
-  font-size: 16px;
+  font-size: 30px;
   line-height: 1.6;
   color: #301964;
 }
