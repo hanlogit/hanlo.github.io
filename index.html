@@ -36,24 +36,10 @@
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
-    <button class="mobile-menu-icon" onclick="toggleMenu()" aria-label="Menú">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </button>
-
   </header>
 
   <!-- MENÚ MÓVIL -->
-  <div class="mobile-menu" id="mobileMenu">
-    <ul>
-      <li><a href="#hero" onclick="toggleMenu()">Inicio</a></li>
-      <li><a href="#servicios" onclick="toggleMenu()">Servicios</a></li>
-      <li><a href="#proceso" onclick="toggleMenu()">Nuestro Proceso</a></li>
-      <li><a href="#quienes-somos" onclick="toggleMenu()">Quiénes Somos</a></li>
-      <li><a href="#contacto" onclick="toggleMenu()">Contacto</a></li>
-    </ul>
-  </div>
+
   <div class="overlay" id="overlay"></div>
 
   <!-- HERO / BANNER -->
@@ -90,7 +76,7 @@
         <!-- Slide 2: Misión -->
         <div class="slide">
           <div class="slide-image">
-            <img src="mis.png" alt="Misión de HANLO" />
+            <img src="mis.png" alt="Misión de HANLO" loading="lazy" />
           </div>
           <div class="slide-text">
             <h3>Misión</h3>
@@ -104,7 +90,7 @@
         <!-- Slide 3: Visión -->
         <div class="slide">
           <div class="slide-image">
-            <img src="vis.png" alt="Visión de HANLO" />
+            <img src="vis.png" alt="Visión de HANLO" loading="lazy" />
           </div>
           <div class="slide-text">
             <h3>Visión</h3>
@@ -135,41 +121,46 @@
     <h2>Servicios</h2>
     <div class="services-grid">
       <div class="service-item">
-        <img src="lim.png" alt="Limpieza de datos" />
+        <img src="lim.png" alt="Limpieza de datos" loading="lazy" />
       </div>
       <div class="service-item">
-        <img src="das.png" alt="Dashboards" />
+        <img src="das.png" alt="Dashboards" loading="lazy" />
       </div>
       <div class="service-item">
-        <img src="aut.png" alt="Automatización" />
+        <img src="aut.png" alt="Automatización" loading="lazy" />
       </div>
       <div class="service-item">
-        <img src="cons.png" alt="Consultoría" />
+        <img src="cons.png" alt="Consultoría" loading="lazy" />
       </div>
       <div class="service-item">
-        <img src="rp.png" alt="Reportes periódicos" />
+        <img src="rp.png" alt="Reportes periódicos" loading="lazy" />
+      </div>
+      <!-- Nueva tarjeta -->
+      <div class="service-item">
+        <img src="DIG.png" alt="Digitalización" loading="lazy" />
       </div>
     </div>
   </section>
+
 
   <!-- NUESTRO PROCESO -->
   <section id="proceso" class="reveal">
     <h2>Nuestro Proceso</h2>
     <div class="proceso-grid">
       <div class="proceso-item">
-        <img src="des.png" alt="Descubrimiento" />
+        <img src="des.png" alt="Descubrimiento" loading="lazy" />
       </div>
       <div class="proceso-item">
-        <img src="adt.png" alt="Auditoría" />
+        <img src="adt.png" alt="Auditoría" loading="lazy" />
       </div>
       <div class="proceso-item">
-        <img src="imp.png" alt="Implementación" />
+        <img src="imp.png" alt="Implementación" loading="lazy" />
       </div>
       <div class="proceso-item">
-        <img src="kpi.png" alt="KPIs" />
+        <img src="kpi.png" alt="KPIs" loading="lazy" />
       </div>
       <div class="proceso-item">
-        <img src="acp.png" alt="Acompañamiento" />
+        <img src="acp.png" alt="Acompañamiento" loading="lazy" />
       </div>
     </div>
   </section>
