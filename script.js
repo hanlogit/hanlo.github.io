@@ -15,14 +15,30 @@ function initMobileMenu() {
   const mobileMenu = document.getElementById("mobileMenu");
   const overlay    = document.getElementById("overlay");
 
-  function toggleMenu() {
-    mobileMenu.classList.toggle("show");
-    overlay.classList.toggle("show");
+  function setOpen(open) {
+    mobileMenu.classList.toggle("show", open);
+    overlay.classList.toggle("show", open);
+    document.body.classList.toggle("no-scroll", open);
   }
 
-  menuIcon.addEventListener("click", toggleMenu);
-  overlay.addEventListener("click", toggleMenu);
+  function toggleMenu() {
+    setOpen(!mobileMenu.classList.contains("show"));
+  }
+
+  if (menuIcon) menuIcon.addEventListener("click", toggleMenu);
+  if (overlay) overlay.addEventListener("click", () => setOpen(false));
+
+  // Cerrar al clickear cualquier link del menú móvil
+  mobileMenu.querySelectorAll("a").forEach(a => {
+    a.addEventListener("click", () => setOpen(false));
+  });
+
+  // Cerrar con Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setOpen(false);
+  });
 }
+
 
 
 // ——— 3. Reveal on scroll ———
@@ -80,6 +96,7 @@ function initFlipCards() {
       'Te asesoramos en la interpretación de tus datos y te orientamos sobre cómo usarlos estratégicamente para mejorar tu negocio.',
     'Reportes periódicos':
       'Generamos informes mensuales con los principales resultados y tendencias para que tengas siempre el control de tu operación.',
+    'Digitalización': 'Transformamos procesos manuales en soluciones digitales adaptadas a tu negocio',
 
     // — Nuestro Proceso —
     'Descubrimiento':
