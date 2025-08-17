@@ -778,5 +778,31 @@ header {
     row-gap: 4rem;
   }
 }
+
+/* ===== Solo versión WEB (≥769px) ===== */
+@media (min-width: 769px) {
+
+  /* Usamos flex para controlar filas exactas y centrar la última incompleta */
+  .services-grid,
+  .proceso-grid {
+    display: flex;           /* sobreescribe el grid actual */
+    flex-wrap: wrap;
+    justify-content: center; /* centra cada fila */
+    column-gap: 4rem;        /* separación horizontal */
+    row-gap: 6rem;           /* separación vertical */
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* 3 columnas fijas por fila: (100% - 2 gaps) / 3 */
+  .services-grid > .service-item,
+  .proceso-grid > .proceso-item {
+    flex: 0 1 calc((100% - 8rem) / 3); /* 8rem = 2 * 4rem */
+    max-width: calc((100% - 8rem) / 3);
+    display: flex;            /* centra el contenido (flip-card o img) dentro */
+    justify-content: center;
+  }
+}
+
 /* Hotfix temporal: si falla JS, muestra el contenido igual */
 .reveal { opacity: 1 !important; transform: none !important; }
