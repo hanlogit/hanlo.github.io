@@ -423,28 +423,28 @@ header {
 /* ————————————————
    Hero: texto principal
    ———————————————— */
+/* Base (desktop) */
+#hero h1,
 #hero .intro-text {
   display: inline-block;
-  background-color: #301964;           /* color de marca */
+  background-color: var(--brand);
   color: #fff;
   padding: 0.75rem 1.5rem;
-  border-left: 12px solid #301964;
-  font-size: 4rem;
-  line-height: 1.2;
-
-  /* Nuevo sombreado */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  border-left: 12px solid var(--brand);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  font-size: 4rem; /* si prefieres, puedes quitarlo si ya lo define .intro-text */
 }
-
 
 /* Responsive: hero en móviles */
 @media (max-width: 768px) {
+  #hero h1,
   #hero .intro-text {
-    font-size: 2.2rem;              /* ajuste de tamaño */
-    border-left-width: 8px;         /* borde proporcional */
+    font-size: 2.2rem;
+    border-left-width: 8px;
     padding: 0.5rem 1rem;
   }
 }
+
 /* ─────────────────────────────────────────
    Sección Servicios y Nuestro Proceso
    ───────────────────────────────────────── */
@@ -778,3 +778,5 @@ header {
     row-gap: 4rem;
   }
 }
+/* Hotfix temporal: si falla JS, muestra el contenido igual */
+.reveal { opacity: 1 !important; transform: none !important; }
