@@ -82,34 +82,38 @@ function initQuienesSomosSlider() {
 }
 
 
-// ——— 5. Flip‑cards con descripciones (usa img.alt para el título) ———
 function initFlipCards() {
   const descriptions = {
     // — Servicios —
     'Limpieza de datos':
-      'Revisamos, depuramos y organizamos tus hojas de cálculo o archivos para que trabajes con información clara y confiable.',
+      'Revisamos, depuramos y organizamos tus hojas de cálculo y archivos para que trabajes con información clara y confiable.',
     'Dashboards':
-      'Diseñamos paneles visuales interactivos con indicadores clave (KPIs) para que tomes decisiones basadas en datos en tiempo real.',
+      'Diseñamos paneles interactivos con indicadores claves (KPIs) para que tomes decisiones basadas en datos en tiempo real.',
     'Automatización':
-      'Implementamos soluciones automatizadas usando herramientas como Excel, Google Sheets, Power BI y Python, reduciendo tareas repetitivas y errores manuales.',
+      'Implementamos soluciones automatizadas con Python y Power BI para reducir tareas repetitivas y errores manuales.',
     'Consultoría':
-      'Te asesoramos en la interpretación de tus datos y te orientamos sobre cómo usarlos estratégicamente para mejorar tu negocio.',
+      'Te asesoramos en la interpretación de tus datos y en cómo usarlos estratégicamente para mejorar tu negocio.',
     'Reportes periódicos':
-      'Generamos informes mensuales con los principales resultados y tendencias para que tengas siempre el control de tu operación.',
-    'Digitalización': 'Transformamos procesos manuales en soluciones digitales adaptadas a tu negocio',
+      'Generamos informes con resultados y tendencias para que tengas siempre el control de tu operación.',
+    'Digitalización':
+      'Transformamos procesos manuales en soluciones digitales adaptadas a tu negocio',
 
     // — Nuestro Proceso —
     'Descubrimiento':
-      'Entendemos cómo funciona el negocio: procesos, personas, herramientas actuales. Escuchamos sus dolores específicos y definimos objetivos claros. Entrega: Ficha de cliente con diagnóstico inicial y enfoque de trabajo.',
+      'Entendemos procesos, personas y datos. Entrega: diagnóstico inicial y enfoque de trabajo.',
     'Auditoría':
-      'Revisamos cómo se almacenan, recopilan y usan los datos clave (ventas, stock, clientes, etc.). Identificamos desorden, duplicidad, brechas o falta de conexión. Entrega: Mapa de información actual + recomendaciones de mejora. 🛠️',
+      'Revisamos cómo se recopilan y usan los datos. Entrega: mapa de información y recomendaciones.',
     'Implementación':
-      'Creamos dashboards, reportes o estructuras de control personalizadas. Trabajamos con Excel, Google Sheets o Power BI (según el cliente). Entrega: Herramientas listas para usar + capacitación. 🚦',
+      'Creamos dashboards, reportes o estructuras de control. Entrega: herramientas listas + capacitación.',
     'KPIs':
-      'Acordamos los indicadores clave de gestión del negocio (margen, stock crítico, pagos, etc.). Generamos paneles visuales simples y accionables. Entrega: Panel de indicadores actualizado automáticamente.',
+      'Definimos indicadores clave y su seguimiento. Entrega: panel actualizado automáticamente.',
     'Acompañamiento':
-      'Reuniones periódicas para revisar datos, hacer ajustes y resolver dudas. Soporte continuo para mantener el sistema alineado a la evolución del negocio. Entrega: Informe de mejoras + soporte constante.'
+      'Revisiones periódicas, ajustes y soporte continuo para mantener el sistema funcionando.'
   };
+
+  // ... resto de tu lógica de flip-cards (sin cambios)
+}
+
 
   document.querySelectorAll('.service-item, .proceso-item').forEach(item => {
     // 1) Extrae la imagen y su alt (que usamos como clave)
